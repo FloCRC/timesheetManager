@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\Project;
 use App\Models\Timesheet;
 use Illuminate\Http\Request;
 
 class TimesheetController extends Controller
 {
     protected Timesheet  $timesheet;
+    protected Project $project;
+    protected Employee $employee;
 
-    public function __construct(Timesheet $timesheet)
+    public function __construct(Timesheet $timesheet, Project $project, Employee $employee)
     {
         $this->timesheet = $timesheet;
+        $this->project = $project;
+        $this->employee = $employee;
     }
 
     public function addTimesheet(Request $request)
     {
         $request->validate([
-          'employee_id' => 'required|exists:employees,id',
-            'project_id' => 'required|exists:projects,id',
-            'time_taken' => 'required|numeric|max:24|min:0.5',
+          "employee_id" => "required|exists:employees,id",
+            "project_id" => "required|exists:projects,id",
+            "time_taken" => "required|numeric|max:24|min:0.5",
           ]);
 
         $timesheet = new Timesheet();
@@ -30,50 +36,88 @@ class TimesheetController extends Controller
 
         if ($timesheet->save()){
             return response()->json([
-               'message' => 'Timesheet added',
+               "message" => "Timesheet added",
             ], 201);
         }
 
         return response()->json([
-            'message' => 'An error occurred.',
+            "message" => "An error occurred.",
         ], 500);
     }
 
     public function getAllTimesheets()
     {
-        $timesheets = $this->timesheet->with('employee')->with('project')->get();
+        $timesheets = $this->timesheet->with("employee")->with("project")->get();
 
         if ($timesheets) {
             return response()->json([
-                'message' => 'Timesheets retrieved.',
-                'data' => $timesheets
+                "message" => "Timesheets retrieved.",
+                "data" => $timesheets
             ]);
         }
 
         return response()->json([
-            'message' => 'An error has occurred.',
+            "message" => "An error has occurred.",
         ], 500);
     }
 
-    public function getTimesheetByEmployeeId(int $id)
+    public function getTimesheetsByEmployeeId(int $id)
     {
-        $timesheet = $this->timesheet->find($id)->with('employee')->get();
+        $employee = $this->employee->find($id);
 
-        if (!$timesheet) {
+        if (!$employee) {
             return response()->json([
-                'message' => 'Invalid employee ID.',
+                "message" => "Employee id doesn't exist.",
+            ], 404);
+        }
+
+        $timesheet = $this->timesheet->with("employee")->where("employee_id", $id)->get();
+
+        if (count($timesheet) == 0) {
+            return response()->json([
+                "message" => "This employee has no timesheets.",
             ], 404);
         }
 
         if ($timesheet) {
             return response()->json([
-                'message' => 'Timesheet retrieved.',
-                'data' => $timesheet
+                "message" => "Timesheets retrieved.",
+                "data" => $timesheet
             ]);
         }
 
         return response()->json([
-            'message' => 'An error has occurred.',
+            "message" => "An error has occurred.",
+        ], 500);
+    }
+
+    public function getTimesheetsByProjectId(int $id)
+    {
+        $project = $this->project->find($id);
+
+        if (!$project) {
+            return response()->json([
+                "message" => "Project id doesn't exist.",
+            ], 404);
+        }
+
+        $timesheet = $this->timesheet->with("project")->where("project_id", $id)->get();
+
+        if (count($timesheet) == 0) {
+            return response()->json([
+                "message" => "This project has no timesheets.",
+            ], 404);
+        }
+
+        if ($timesheet) {
+            return response()->json([
+                "message" => "Timesheets retrieved.",
+                "data" => $timesheet
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error has occurred.",
         ], 500);
     }
 }
