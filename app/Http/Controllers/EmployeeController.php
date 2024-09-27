@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
+/**
+ * @apiResource
+ * @apiResourceCollection
+ */
 class EmployeeController extends Controller
 {
     protected Employee $employee;

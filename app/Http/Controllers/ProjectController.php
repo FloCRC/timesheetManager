@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
+/**
+ * @apiResource
+ * @apiResourceCollection
+ */
 class ProjectController extends Controller
 {
     protected Project $project;

@@ -1,0 +1,485 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "2681a6a3-7bc4-4b80-9288-7c4e7a8cd0cb",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/timesheets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"employee_id\":2,\"project_id\":19,\"time_taken\":73}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/timesheets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":2,\"employee_id\":1,\"project_id\":2,\"time_taken\":3.5,\"created_at\":\"2024-09-27T11:21:28.000000Z\",\"updated_at\":\"2024-09-27T11:21:28.000000Z\",\"employee\":{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null}},{\"id\":3,\"employee_id\":2,\"project_id\":2,\"time_taken\":5.5,\"created_at\":\"2024-09-27T11:27:08.000000Z\",\"updated_at\":\"2024-09-27T11:27:08.000000Z\",\"employee\":{\"id\":2,\"first_name\":\"Aimee\",\"last_name\":\"Bernhard\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null}},{\"id\":4,\"employee_id\":3,\"project_id\":4,\"time_taken\":2.5,\"created_at\":\"2024-09-27T12:40:30.000000Z\",\"updated_at\":\"2024-09-27T12:40:30.000000Z\",\"employee\":{\"id\":3,\"first_name\":\"Nico\",\"last_name\":\"Fritsch\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null}},{\"id\":5,\"employee_id\":7,\"project_id\":4,\"time_taken\":4.5,\"created_at\":\"2024-09-27T12:42:00.000000Z\",\"updated_at\":\"2024-09-27T12:42:00.000000Z\",\"employee\":{\"id\":7,\"first_name\":\"Nettie\",\"last_name\":\"Bartoletti\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/timesheets\/employee\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/employee\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/employee\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the employee."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":2,\"employee_id\":1,\"project_id\":2,\"time_taken\":3.5,\"created_at\":\"2024-09-27T11:21:28.000000Z\",\"updated_at\":\"2024-09-27T11:21:28.000000Z\",\"employee\":{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/timesheets\/project\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/project\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/project\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"This project has no timesheets.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE api\/timesheets\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the timesheet."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/projects",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Projects retrieved.\",\"data\":[{\"id\":1,\"estimated_time_required\":30,\"time_spent\":0,\"expected_time_remaining\":30,\"created_at\":null,\"updated_at\":null},{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null},{\"id\":3,\"estimated_time_required\":50,\"time_spent\":0,\"expected_time_remaining\":50,\"created_at\":null,\"updated_at\":null},{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null},{\"id\":5,\"estimated_time_required\":74,\"time_spent\":0,\"expected_time_remaining\":74,\"created_at\":null,\"updated_at\":null},{\"id\":6,\"estimated_time_required\":12,\"time_spent\":0,\"expected_time_remaining\":12,\"created_at\":null,\"updated_at\":null},{\"id\":7,\"estimated_time_required\":72,\"time_spent\":0,\"expected_time_remaining\":72,\"created_at\":null,\"updated_at\":null},{\"id\":8,\"estimated_time_required\":25,\"time_spent\":0,\"expected_time_remaining\":25,\"created_at\":null,\"updated_at\":null},{\"id\":9,\"estimated_time_required\":43,\"time_spent\":0,\"expected_time_remaining\":43,\"created_at\":null,\"updated_at\":null},{\"id\":10,\"estimated_time_required\":29,\"time_spent\":0,\"expected_time_remaining\":29,\"created_at\":null,\"updated_at\":null}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/projects",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"estimated_time_required\":29}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/projects\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/employees",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Employees retrieved.\",\"data\":[{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null},{\"id\":2,\"first_name\":\"Aimee\",\"last_name\":\"Bernhard\",\"created_at\":null,\"updated_at\":null},{\"id\":3,\"first_name\":\"Nico\",\"last_name\":\"Fritsch\",\"created_at\":null,\"updated_at\":null},{\"id\":4,\"first_name\":\"Candice\",\"last_name\":\"Williamson\",\"created_at\":null,\"updated_at\":null},{\"id\":5,\"first_name\":\"Hunter\",\"last_name\":\"Dickinson\",\"created_at\":null,\"updated_at\":null},{\"id\":6,\"first_name\":\"Buford\",\"last_name\":\"Spinka\",\"created_at\":null,\"updated_at\":null},{\"id\":7,\"first_name\":\"Nettie\",\"last_name\":\"Bartoletti\",\"created_at\":null,\"updated_at\":null},{\"id\":8,\"first_name\":\"Fern\",\"last_name\":\"Glover\",\"created_at\":null,\"updated_at\":null},{\"id\":9,\"first_name\":\"Wilma\",\"last_name\":\"Reinger\",\"created_at\":null,\"updated_at\":null},{\"id\":10,\"first_name\":\"Marisa\",\"last_name\":\"Ondricka\",\"created_at\":null,\"updated_at\":null}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/employees",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"ndyhugyl\",\"last_name\":\"jmolqcopkwphvdvjcyy\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/employees\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the employee."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

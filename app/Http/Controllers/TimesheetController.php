@@ -7,6 +7,10 @@ use App\Models\Project;
 use App\Models\Timesheet;
 use Illuminate\Http\Request;
 
+/**
+ * @apiResource
+ * @apiResourceCollection
+ */
 class TimesheetController extends Controller
 {
     protected Timesheet  $timesheet;
@@ -23,8 +27,8 @@ class TimesheetController extends Controller
     public function addTimesheet(Request $request)
     {
         $request->validate([
-          "employee_id" => "required|exists:employees,id",
-            "project_id" => "required|exists:projects,id",
+          "employee_id" => "required|integer|exists:employees,id",
+            "project_id" => "required|integer|exists:projects,id",
             "time_taken" => "required|numeric|max:24|min:0.5",
           ]);
 
