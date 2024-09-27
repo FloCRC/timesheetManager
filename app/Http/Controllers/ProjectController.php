@@ -46,4 +46,25 @@ class ProjectController extends Controller
             "message" => "An error occurred.",
         ], 500);
     }
+
+    public function deleteProjectById(Int $id)
+    {
+        $project = $this->project->find($id);
+
+        if (!$project) {
+            return response()->json([
+                "message" => "Project doesn't exist.",
+            ], 404);
+        }
+
+        if ($project->delete()) {
+            return response()->json([
+                "message" => "Project deleted.",
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error has occurred.",
+        ], 500);
+    }
 }

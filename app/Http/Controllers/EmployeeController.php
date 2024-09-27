@@ -46,4 +46,25 @@ class EmployeeController extends Controller
             "message" => "An error occurred.",
         ], 500);
     }
+
+    public function deleteEmployeeById(Int $id)
+    {
+        $employee = $this->employee->find($id);
+
+        if (!$employee) {
+            return response()->json([
+                "message" => "Employee doesn't exist.",
+            ], 404);
+        }
+
+        if ($employee->delete()) {
+            return response()->json([
+                "message" => "Employee deleted.",
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error has occurred.",
+        ], 500);
+    }
 }

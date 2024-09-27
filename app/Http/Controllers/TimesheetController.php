@@ -120,4 +120,25 @@ class TimesheetController extends Controller
             "message" => "An error has occurred.",
         ], 500);
     }
+
+    public function deleteTimesheetById(int $id)
+    {
+        $imesheet = $this->timesheet->find($id);
+
+        if (!$imesheet) {
+            return response()->json([
+                "message" => "Timesheet doesn't exist.",
+            ], 404);
+        }
+
+        if ($imesheet->delete()) {
+            return response()->json([
+                "message" => "Timesheet deleted.",
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error has occurred.",
+        ], 500);
+    }
 }
