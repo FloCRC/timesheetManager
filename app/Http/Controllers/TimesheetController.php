@@ -129,15 +129,15 @@ class TimesheetController extends Controller
 
     public function deleteTimesheetById(int $id)
     {
-        $imesheet = $this->timesheet->find($id);
+        $timesheet = $this->timesheet->find($id);
 
-        if (!$imesheet) {
+        if (!$timesheet) {
             return response()->json([
                 "message" => "Timesheet doesn't exist.",
             ], 404);
         }
 
-        if ($imesheet->delete()) {
+        if ($timesheet->delete()) {
             return response()->json([
                 "message" => "Timesheet deleted.",
             ]);
@@ -145,6 +145,39 @@ class TimesheetController extends Controller
 
         return response()->json([
             "message" => "An error has occurred.",
+        ], 500);
+    }
+
+    public function updateTimesheetById(Request $request, int $id)
+    {
+        $timesheet = $this->timesheet->find($id);
+
+        if (!$timesheet) {
+            return response()->json([
+                "message" => "Timesheet doesn't exist.",
+            ], 404);
+        }
+
+        $request->validate([
+            "employee_id" => "integer|exists:employees,id",
+            "project_id" => "integer|exists:projects,id",
+            "time_taken" => "numeric|max:24|min:0.5",
+            "description" => "string|min: 0|max: 100",
+        ]);
+
+        $timesheet->employee_id = $request->employee_id ?? $timesheet->employee_id;
+        $timesheet->project_id = $request->project_id ?? $timesheet->project_id;
+        $timesheet->time_taken = $request->time_taken ?? $timesheet->time_taken;
+        $timesheet->description = $request->description ?? $timesheet->description;
+
+        if ($timesheet->save()){
+            return response()->json([
+                "message" => "Timesheet updated.",
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error occurred.",
         ], 500);
     }
 }
