@@ -30,6 +30,7 @@ class TimesheetController extends Controller
           "employee_id" => "required|integer|exists:employees,id",
             "project_id" => "required|integer|exists:projects,id",
             "time_taken" => "required|numeric|max:24|min:0.5",
+            "description" => "string|min: 0|max: 100",
           ]);
 
         $timesheet = new Timesheet();
@@ -37,6 +38,7 @@ class TimesheetController extends Controller
         $timesheet->employee_id = $request->employee_id;
         $timesheet->project_id = $request->project_id;
         $timesheet->time_taken = $request->time_taken;
+        $timesheet->description = $request->description;
 
         if ($timesheet->save()){
             return response()->json([
