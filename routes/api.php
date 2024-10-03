@@ -12,6 +12,7 @@ Route::delete('/timesheets/{id}', [\App\Http\Controllers\TimesheetController::cl
 
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'getAllProjects']);
 Route::post('/projects', [\App\Http\Controllers\ProjectController::class, 'addProject']);
+Route::put('/projects/{id}', [\App\Http\Controllers\ProjectController::class, 'updateProjectById']);
 Route::delete('/projects/{id}', [\App\Http\Controllers\ProjectController::class, 'deleteProjectById']);
 
 Route::get('/employees', [\App\Http\Controllers\EmployeeController::class, 'getAllEmployees']);

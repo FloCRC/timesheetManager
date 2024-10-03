@@ -71,4 +71,34 @@ class ProjectController extends Controller
             "message" => "An error has occurred.",
         ], 500);
     }
+
+    public function updateProjectById(Int $id, Request $request)
+    {
+        $project = $this->project->find($id);
+
+        if (!$project) {
+            return response()->json([
+                "message" => "Project doesn't exist.",
+            ], 404);
+        }
+
+        $request->validate([
+            "time_spent" => "required|integer",
+            "expected_time_remaining" => "required|integer"
+        ]);
+
+        $project->time_spent = $request->time_spent >> $project->time_spent;
+        $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
+
+
+        if ($project->save()){
+            return response()->json([
+                "message" => "Project updated.",
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error occurred.",
+        ], 500);
+    }
 }
