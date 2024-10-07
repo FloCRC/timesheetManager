@@ -67,6 +67,21 @@ class TimesheetController extends Controller
         ], 500);
     }
 
+    public function getTimesheetById($id)
+    {
+        $timesheet = $this->timesheet->with("employee")->with("project")->find($id);
+
+        if ($timesheet) {
+            return response()->json([
+                "message" => "Timesheet retrieved.",
+                "data" => $timesheet
+            ]);
+        }
+        else return response()->json([
+            "message" => "Timesheet not found.",
+        ], 404);
+    }
+
     public function getTimesheetsByEmployeeId(int $id)
     {
         $employee = $this->employee->find($id);
