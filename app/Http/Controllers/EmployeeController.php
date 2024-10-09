@@ -20,12 +20,28 @@ class EmployeeController extends Controller
 
     public function getAllEmployees()
     {
-        $employee = $this->employee->all();
+        $employees = $this->employee->all();
 
         return response()->json([
             "message" => "Employees retrieved.",
-            "data" => $employee
+            "data" => $employees
         ]);
+    }
+
+    public function getEmployeeById($id)
+    {
+        $employee = $this->employee->find($id);
+
+        if ($employee) {
+            return response()->json([
+                "message" => "Employee retrieved.",
+                "data" => $employee
+            ]);
+        }
+
+        return response()->json([
+            "message" => "Employee not found.",
+        ], 404);
     }
 
     public function addEmployee(Request $request)

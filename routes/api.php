@@ -17,5 +17,6 @@ Route::put('/projects/{id}', [\App\Http\Controllers\ProjectController::class, 'u
 Route::delete('/projects/{id}', [\App\Http\Controllers\ProjectController::class, 'deleteProjectById']);
 
 Route::get('/employees', [\App\Http\Controllers\EmployeeController::class, 'getAllEmployees']);
+Route::get('/employees/{id}', [\App\Http\Controllers\EmployeeController::class, 'getEmployeeById']);
 Route::post('/employees', [\App\Http\Controllers\EmployeeController::class, 'addEmployee']);
 Route::delete('/employees/{id}', [\App\Http\Controllers\EmployeeController::class, 'deleteEmployeeById']);
