@@ -17,7 +17,9 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'estimated_time_required' => $this->faker->numberBetween(0, 100),
+            'time_spent' => $this->faker->numberBetween(0, 100),
+            'expected_time_remaining' => $this->faker->numberBetween(0, 100),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Employee;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class TimesheetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'employee_id' => Employee::factory(),
+            'project_id' => Project::factory(),
+            'time_taken' => $this->faker->numberBetween(0, 12),
+            'description' => $this->faker->sentence(20),
         ];
     }
 }
