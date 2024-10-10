@@ -129,6 +129,10 @@ class EmployeeTest extends TestCase
                 $json->hasAll(['message']);
             });
 
-        $this->assertDatabaseHas('employees', ['id' => $employee->id, 'first_name' => $employee->first_name, 'last_name' => $employee->last_name]);
+        $this->assertDatabaseHas('employees', [
+            'id' => $employee->id,
+            'first_name' => $employee->first_name,
+            'last_name' => $employee->last_name
+        ]);
     }
 }
