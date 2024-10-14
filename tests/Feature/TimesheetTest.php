@@ -146,4 +146,86 @@ class TimesheetTest extends TestCase
                 $json->hasAll(['message']);
             });
     }
+
+    public function test_deleteTimesheet_success()
+    {
+        $timesheet = Timesheet::factory()->create();
+
+        $response = $this->deleteJson('/api/timesheets/1');
+
+        $response->assertStatus(200)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseMissing('timesheets', [
+            'id' => $timesheet->id,
+            'employee_id' => $timesheet->employee_id,
+            'project_id' => $timesheet->project_id,
+            'time_taken' => $timesheet->time_taken,
+            'created_at' => $timesheet->created_at,
+            'updated_at' => $timesheet->updated_at,
+            'description' => $timesheet->description,
+        ]);
+    }
+
+    public function test_deleteTimesheet_fail()
+    {
+        $timesheet = Timesheet::factory()->create();
+
+        $response = $this->deleteJson('/api/timesheets/2');
+
+        $response->assertStatus(404)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseHas('timesheets', [
+            'id' => $timesheet->id,
+            'employee_id' => $timesheet->employee_id,
+            'project_id' => $timesheet->project_id,
+            'time_taken' => $timesheet->time_taken,
+            'created_at' => $timesheet->created_at,
+            'updated_at' => $timesheet->updated_at,
+            'description' => $timesheet->description,
+        ]);
+    }
+
+    public function test_updateTimesheetById_success()
+    {
+        Timesheet::factory()->create();
+
+        $testData = [
+            "time_taken" => 1,
+            "description" => "Test update timesheet"
+        ];
+
+        $response = $this->putJson('/api/timesheets/1', $testData);
+
+        $response->assertStatus(200)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseHas('timesheets', $testData);
+    }
+
+    public function test_updateTimesheetById_fail()
+    {
+        Timesheet::factory()->create();
+
+        $testData = [
+            "time_taken" => 1,
+            "description" => "Test update timesheet"
+        ];
+
+        $response = $this->putJson('/api/timesheets/2', $testData);
+
+        $response->assertStatus(404)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseMissing('timesheets', $testData);
+    }
 }
