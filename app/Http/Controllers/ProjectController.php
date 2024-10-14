@@ -28,6 +28,16 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function getProjectById(int $id)
+    {
+        $project = $this->project->find($id);
+
+        return response()->json([
+            "message" => "Project retrieved.",
+            "data" => $project
+        ]);
+    }
+
     public function addProject(Request $request)
     {
         $request->validate([
@@ -87,7 +97,7 @@ class ProjectController extends Controller
             "expected_time_remaining" => "required|integer"
         ]);
 
-        $project->time_spent = $request->time_spent >> $project->time_spent;
+        $project->time_spent = $request->time_spent ?? $project->time_spent;
         $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
 
 

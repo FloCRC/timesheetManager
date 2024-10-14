@@ -16,12 +16,14 @@ class TimesheetController extends Controller
     protected Timesheet  $timesheet;
     protected Project $project;
     protected Employee $employee;
+    protected ProjectController $projectController;
 
-    public function __construct(Timesheet $timesheet, Project $project, Employee $employee)
+    public function __construct(Timesheet $timesheet, Project $project, Employee $employee, ProjectController $projectController)
     {
         $this->timesheet = $timesheet;
         $this->project = $project;
         $this->employee = $employee;
+        $this->projectController = $projectController;
     }
 
     public function addTimesheet(Request $request)
@@ -41,6 +43,24 @@ class TimesheetController extends Controller
         $timesheet->description = $request->description;
 
         if ($timesheet->save()){
+
+            $project = $this->project->find($timesheet->project_id);
+
+            $timeSpent = $project->time_spent + $timesheet->time_taken;
+            $timeRemaining = $project->expected_time_remaining - $timesheet->time_taken;
+            if ($timeRemaining <= 0){
+                $timeRemaining = 0;
+            }
+
+            $requestData = new Request();
+
+            $requestData->merge([
+                "time_spent" => $timeSpent,
+                "expected_time_remaining" => $timeRemaining,
+            ]);
+
+            $this->projectController->updateProjectById($project->id, $requestData);
+
             return response()->json([
                "message" => "Timesheet added",
             ], 201);
