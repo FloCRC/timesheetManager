@@ -26,51 +26,6 @@ class TimesheetController extends Controller
         $this->projectController = $projectController;
     }
 
-    public function addTimesheet(Request $request)
-    {
-        $request->validate([
-          "employee_id" => "required|integer|exists:employees,id",
-            "project_id" => "required|integer|exists:projects,id",
-            "time_taken" => "required|numeric|max:24|min:0.5",
-            "description" => "string|min: 0|max: 100",
-          ]);
-
-        $timesheet = new Timesheet();
-
-        $timesheet->employee_id = $request->employee_id;
-        $timesheet->project_id = $request->project_id;
-        $timesheet->time_taken = $request->time_taken;
-        $timesheet->description = $request->description;
-
-        if ($timesheet->save()){
-
-            $project = $this->project->find($timesheet->project_id);
-
-            $timeSpent = $project->time_spent + $timesheet->time_taken;
-            $timeRemaining = $project->expected_time_remaining - $timesheet->time_taken;
-            if ($timeRemaining <= 0){
-                $timeRemaining = 0;
-            }
-
-            $requestData = new Request();
-
-            $requestData->merge([
-                "time_spent" => $timeSpent,
-                "expected_time_remaining" => $timeRemaining,
-            ]);
-
-            $this->projectController->updateProjectById($project->id, $requestData);
-
-            return response()->json([
-               "message" => "Timesheet added",
-            ], 201);
-        }
-
-        return response()->json([
-            "message" => "An error occurred.",
-        ], 500);
-    }
-
     public function getAllTimesheets()
     {
         $timesheets = $this->timesheet->with("employee")->with("project")->get();
@@ -159,6 +114,51 @@ class TimesheetController extends Controller
 
         return response()->json([
             "message" => "An error has occurred.",
+        ], 500);
+    }
+
+    public function addTimesheet(Request $request)
+    {
+        $request->validate([
+            "employee_id" => "required|integer|exists:employees,id",
+            "project_id" => "required|integer|exists:projects,id",
+            "time_taken" => "required|numeric|max:24|min:0.5",
+            "description" => "string|min: 0|max: 100",
+        ]);
+
+        $timesheet = new Timesheet();
+
+        $timesheet->employee_id = $request->employee_id;
+        $timesheet->project_id = $request->project_id;
+        $timesheet->time_taken = $request->time_taken;
+        $timesheet->description = $request->description;
+
+        if ($timesheet->save()){
+
+            $project = $this->project->find($timesheet->project_id);
+
+            $timeSpent = $project->time_spent + $timesheet->time_taken;
+            $timeRemaining = $project->expected_time_remaining - $timesheet->time_taken;
+            if ($timeRemaining <= 0){
+                $timeRemaining = 0;
+            }
+
+            $requestData = new Request();
+
+            $requestData->merge([
+                "time_spent" => $timeSpent,
+                "expected_time_remaining" => $timeRemaining,
+            ]);
+
+            $this->projectController->updateProjectById($project->id, $requestData);
+
+            return response()->json([
+                "message" => "Timesheet added",
+            ], 201);
+        }
+
+        return response()->json([
+            "message" => "An error occurred.",
         ], 500);
     }
 

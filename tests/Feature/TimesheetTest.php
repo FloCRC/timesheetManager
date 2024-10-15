@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Employee;
+use App\Models\Project;
 use App\Models\Timesheet;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -147,7 +149,50 @@ class TimesheetTest extends TestCase
             });
     }
 
-    public function test_deleteTimesheet_success()
+    public function test_addTimesheet_success()
+    {
+        Employee::factory()->create();
+        Project::factory()->create();
+
+        $testData = [
+            "employee_id" => 1,
+            "project_id" => 1,
+            "time_taken" => 1,
+            "description" => "test",
+        ];
+
+        $response = $this->postJson('/api/timesheets', $testData);
+
+        $response->assertStatus(201)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseHas('timesheets', $testData);
+    }
+
+    public function test_addTimesheet_fail()
+    {
+        Employee::factory()->create();
+        Project::factory()->create();
+
+        $testData = [
+            "time_taken" => "1",
+            "description" => "test",
+        ];
+
+        $response = $this->postJson('/api/timesheets', $testData);
+
+        $response->assertStatus(422)
+        ->assertInvalid([
+            'employee_id' => 'The employee id field is required.',
+            'project_id' => 'The project id field is required.',
+        ]);
+
+        $this->assertDatabaseMissing('timesheets', $testData);
+    }
+
+    public function test_deleteTimesheetById_success()
     {
         $timesheet = Timesheet::factory()->create();
 
@@ -169,7 +214,7 @@ class TimesheetTest extends TestCase
         ]);
     }
 
-    public function test_deleteTimesheet_fail()
+    public function test_deleteTimesheetById_fail()
     {
         $timesheet = Timesheet::factory()->create();
 

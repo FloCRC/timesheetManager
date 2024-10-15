@@ -32,10 +32,16 @@ class ProjectController extends Controller
     {
         $project = $this->project->find($id);
 
+        if($project) {
+            return response()->json([
+                "message" => "Project retrieved.",
+                "data" => $project
+            ]);
+        }
+
         return response()->json([
-            "message" => "Project retrieved.",
-            "data" => $project
-        ]);
+            "message" => "Project not found."
+        ], 404);
     }
 
     public function addProject(Request $request)
@@ -99,6 +105,7 @@ class ProjectController extends Controller
 
         $project->time_spent = $request->time_spent ?? $project->time_spent;
         $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
+        $project->estimated_time_required = $request->estimated_time_required ?? $project->estimated_time_required;
 
 
         if ($project->save()){

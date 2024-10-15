@@ -33,6 +33,38 @@ class ProjectTest extends TestCase
             });
     }
 
+    public function test_getProjectById_success()
+    {
+        Project::factory()->create();
+
+        $response = $this->getJson('/api/projects/1');
+
+        $response->assertStatus(200)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message', 'data'])
+                    ->has('data', function (AssertableJson $json) {
+                        $json->whereAllType([
+                            'id' => 'integer',
+                            'estimated_time_required' => 'integer',
+                            'time_spent' => 'integer',
+                            'expected_time_remaining' => 'integer',
+                        ]);
+                    });
+            });
+    }
+
+    public function test_getProjectById_fail()
+    {
+        Project::factory()->create();
+
+        $response = $this->getJson('/api/projects/2');
+
+        $response->assertStatus(404)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+    }
+
     public function test_addProject_success()
     {
         $testData = [
@@ -106,4 +138,42 @@ class ProjectTest extends TestCase
             'updated_at' => $project->updated_at
         ]);
     }
+
+    public function test_updateProjectById_success()
+    {
+        Project::factory()->create();
+
+        $testData = [
+            "time_spent" => 10,
+            "expected_time_remaining" => 50,
+        ];
+
+        $response = $this->putJson('/api/projects/1', $testData);
+
+        $response->assertStatus(200)
+            ->assertJson(function (AssertableJson $json) {
+                $json->hasAll(['message']);
+            });
+
+        $this->assertDatabaseHas('projects', $testData);
+    }
+
+    public function test_updateProjectById_fail()
+    {
+        Project::factory()->create();
+
+        $testData = [
+            "time_spent" => 200,
+        ];
+
+        $response = $this->putJson('/api/projects/1', $testData);
+
+        $response->assertStatus(422)
+        ->assertInvalid([
+            'expected_time_remaining' => 'The expected time remaining field is required.',
+        ]);
+
+        $this->assertDatabaseMissing('projects', $testData);
+    }
+
 }
