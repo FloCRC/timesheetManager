@@ -16,10 +16,12 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        $timeRequired = $this->faker->numberBetween(1, 100);
+        $timeSpent = $this->faker->numberBetween(0, $timeRequired);
         return [
-            'estimated_time_required' => $this->faker->numberBetween(0, 100),
-            'time_spent' => $this->faker->numberBetween(0, 100),
-            'expected_time_remaining' => $this->faker->numberBetween(0, 100),
+            'estimated_time_required' => $timeRequired,
+            'time_spent' => $timeSpent,
+            'expected_time_remaining' => $timeRequired - $timeSpent,
         ];
     }
 }

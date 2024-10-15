@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Project;
 use App\Models\Timesheet;
+use App\Services\TimeCalculators;
 use Illuminate\Http\Request;
 
 /**
@@ -120,8 +121,8 @@ class TimesheetController extends Controller
     public function addTimesheet(Request $request)
     {
         $request->validate([
-            "employee_id" => "required|integer|exists:employees,id",
-            "project_id" => "required|integer|exists:projects,id",
+            "employee_id" => "required|numeric|exists:employees,id",
+            "project_id" => "required|numeric|exists:projects,id",
             "time_taken" => "required|numeric|max:24|min:0.5",
             "description" => "string|min: 0|max: 100",
         ]);
@@ -135,20 +136,17 @@ class TimesheetController extends Controller
 
         if ($timesheet->save()){
 
-            $project = $this->project->find($timesheet->project_id);
+        $project = $this->project->find($timesheet->project_id);
 
-            $timeSpent = $project->time_spent + $timesheet->time_taken;
-            $timeRemaining = $project->expected_time_remaining - $timesheet->time_taken;
-            if ($timeRemaining <= 0){
-                $timeRemaining = 0;
-            }
+        $timeSpent = TimeCalculators::calculateTimeSpent($project, $timesheet);
+        $timeRemaining = TimeCalculators::calculateTimeRemaining($project, $timesheet);
 
-            $requestData = new Request();
+        $requestData = new Request();
 
-            $requestData->merge([
-                "time_spent" => $timeSpent,
-                "expected_time_remaining" => $timeRemaining,
-            ]);
+        $requestData->merge([
+            "time_spent" => $timeSpent,
+            "expected_time_remaining" => $timeRemaining,
+        ]);
 
             $this->projectController->updateProjectById($project->id, $requestData);
 
@@ -194,8 +192,8 @@ class TimesheetController extends Controller
         }
 
         $request->validate([
-            "employee_id" => "integer|exists:employees,id",
-            "project_id" => "integer|exists:projects,id",
+            "employee_id" => "numeric|exists:employees,id",
+            "project_id" => "numeric|exists:projects,id",
             "time_taken" => "numeric|max:24|min:0.5",
             "description" => "string|min: 0|max: 100",
         ]);

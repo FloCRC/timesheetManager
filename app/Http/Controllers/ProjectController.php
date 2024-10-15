@@ -47,7 +47,7 @@ class ProjectController extends Controller
     public function addProject(Request $request)
     {
         $request->validate([
-            "estimated_time_required" => "required|numeric|min:0"
+            "estimated_time_required" => "required|numeric|min:1"
         ]);
 
         $project = new Project();
@@ -99,8 +99,9 @@ class ProjectController extends Controller
         }
 
         $request->validate([
-            "time_spent" => "required|integer",
-            "expected_time_remaining" => "required|integer"
+            "time_spent" => "required|numeric|min:0",
+            "expected_time_remaining" => "required|numeric|min:0",
+            "estimated_time_required" => "numeric|min:0"
         ]);
 
         $project->time_spent = $request->time_spent ?? $project->time_spent;
