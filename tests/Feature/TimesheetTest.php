@@ -72,9 +72,7 @@ class TimesheetTest extends TestCase
         $response = $this->getJson('/api/timesheets/2');
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Timesheet doesn't exist."]);
     }
 
     public function test_getTimesheetByEmployeeId_success()
@@ -108,9 +106,7 @@ class TimesheetTest extends TestCase
         $response = $this->getJson('/api/timesheets/employee/2');
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Employee id doesn't exist."]);
     }
 
     public function test_getTimesheetByProjectId_success()
@@ -144,9 +140,7 @@ class TimesheetTest extends TestCase
         $response = $this->getJson('/api/timesheets/project/2');
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Project id doesn't exist."]);
     }
 
     public function test_addTimesheet_success()
@@ -221,9 +215,7 @@ class TimesheetTest extends TestCase
         $response = $this->deleteJson('/api/timesheets/2');
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Timesheet doesn't exist."]);
 
         $this->assertDatabaseHas('timesheets', [
             'id' => $timesheet->id,
@@ -267,22 +259,51 @@ class TimesheetTest extends TestCase
         $response = $this->putJson('/api/timesheets/2', $testData);
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Timesheet doesn't exist."]);
 
         $this->assertDatabaseMissing('timesheets', $testData);
     }
 
-    public function test_getTodaysTimesheetsByEmployeeId_fail()
+//    public function test_getTodaysTimesheetsByEmployeeId_success()
+//    {
+//        Timesheet::factory()->create();
+//
+//        $response = $this->getJson("/api/timesheets/today/1");
+//
+//        $response->assertStatus(200)
+//            ->assertJson(function (AssertableJson $json) {
+//                $json->hasAll(['message', 'data'])
+//                    ->has('data', 1, function (AssertableJson $json) {
+//                        $json->whereAllType([
+//                            'id' => 'integer',
+//                            'employee_id' => 'integer',
+//                            'project_id' => 'integer',
+//                            'time_taken' => 'integer',
+//                            'created_at' => 'string',
+//                            'updated_at' => 'string',
+//                            'description' => 'string',
+//                        ]);
+//                    });
+//            });
+//    }
+
+    public function test_getTodaysTimesheetsByEmployeeId_failDoesntExist()
     {
         Timesheet::factory()->create();
 
         $response = $this->getJson('/api/timesheets/today/5');
 
         $response->assertStatus(404)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
+            ->assertJson(["message" => "Employee id doesn't exist."]);
+    }
+
+    public function test_getTodaysTimesheetsByEmployeeId_failNoTimesheetsToday()
+    {
+        Timesheet::factory()->create();
+
+        $response = $this->getJson('/api/timesheets/today/1');
+
+        $response->assertStatus(404)
+            ->assertJson(["message" => "This employee has no timesheets today."]);
     }
 }

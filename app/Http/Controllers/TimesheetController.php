@@ -54,7 +54,7 @@ class TimesheetController extends Controller
             ]);
         }
         else return response()->json([
-            "message" => "Timesheet not found.",
+            "message" => "Timesheet doesn't exist.",
         ], 404);
     }
 
