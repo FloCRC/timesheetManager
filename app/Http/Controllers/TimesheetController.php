@@ -213,4 +213,34 @@ class TimesheetController extends Controller
             "message" => "An error occurred.",
         ], 500);
     }
+
+    public function getTodaysTimesheetsByEmployeeId(Int $id)
+    {
+        $employee = $this->employee->find($id);
+
+        if (!$employee) {
+            return response()->json([
+                "message" => "Employee id doesn't exist.",
+            ], 404);
+        }
+
+        $timesheets = $this->timesheet->whereDate('created_at', '>=', date('Y-m-d').' 00:00:00')->where('employee_id', $id)->get();
+
+        if (count($timesheets) == 0) {
+            return response()->json([
+                "message" => "This employee has no timesheets today.",
+            ], 404);
+        }
+
+        if ($timesheets) {
+            return response()->json([
+                "message" => "Timesheets retrieved.",
+                "data" => $timesheets
+            ]);
+        }
+
+        return response()->json([
+            "message" => "An error has occurred.",
+        ], 500);
+    }
 }
