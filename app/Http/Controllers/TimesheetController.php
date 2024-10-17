@@ -136,22 +136,32 @@ class TimesheetController extends Controller
 
         if ($timesheet->save()){
 
-        $project = $this->project->find($timesheet->project_id);
+            $project = $this->project->find($timesheet->project_id);
 
-        $timeSpent = TimeCalculators::calculateTimeSpent($project, $timesheet);
-        $timeRemaining = TimeCalculators::calculateTimeRemaining($project, $timesheet);
+            $timeSpent = TimeCalculators::calculateTimeSpent($project, $timesheet);
+            $timeRemaining = TimeCalculators::calculateTimeRemaining($project, $timesheet);
 
-        $requestData = new Request();
+            $requestData = new Request();
 
-        $requestData->merge([
-            "time_spent" => $timeSpent,
-            "expected_time_remaining" => $timeRemaining,
-        ]);
+            $requestData->merge([
+                "time_spent" => $timeSpent,
+                "expected_time_remaining" => $timeRemaining,
+            ]);
 
             $this->projectController->updateProjectById($project->id, $requestData);
 
+            $todaysTimesheets = $this->timesheet->whereDate('created_at', '>=', date('Y-m-d').' 00:00:00')->where('employee_id', $timesheet->employee_id)->get();
+
+            $timeWorkedToday = TimeCalculators::calculateTimeWorkedToday($todaysTimesheets);
+
+            $emailManagement = '';
+
+            if ($timeWorkedToday > 10) {
+                $emailManagement = ' and management has been emailed as you have worked over 10 hours in a day.';
+            }
+
             return response()->json([
-                "message" => "Timesheet added",
+                "message" => "Timesheet added$emailManagement",
             ], 201);
         }
 

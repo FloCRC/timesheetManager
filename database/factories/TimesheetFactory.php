@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Employee;
 use App\Models\Project;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,6 +24,7 @@ class TimesheetFactory extends Factory
             'project_id' => Project::factory(),
             'time_taken' => $this->faker->numberBetween(0, 12),
             'description' => $this->faker->sentence(20),
+            'created_at' => Carbon::now()
         ];
     }
 }

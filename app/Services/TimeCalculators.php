@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Project;
 use App\Models\Timesheet;
+use Illuminate\Database\Eloquent\Collection;
 
 class TimeCalculators
 {
@@ -21,5 +22,20 @@ class TimeCalculators
         }
 
         return $timeRemaining;
+    }
+
+    /**
+     * @param Collection $timesheets
+     * @return int
+     */
+    public static function calculateTimeWorkedToday(Collection $timesheets)
+    {
+        $timeWorkedToday = 0;
+
+        foreach ($timesheets as $timesheet) {
+            $timeWorkedToday += $timesheet->time_taken;
+        }
+
+        return $timeWorkedToday;
     }
 }
