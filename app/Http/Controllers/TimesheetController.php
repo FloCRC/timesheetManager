@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OverWorked;
 use App\Models\Employee;
 use App\Models\Project;
 use App\Models\Timesheet;
 use App\Services\TimeCalculators;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * @apiResource
@@ -157,6 +159,7 @@ class TimesheetController extends Controller
             $emailManagement = '';
 
             if ($timeWorkedToday > 10) {
+                Mail::to("test@test.com")->send(new OverWorked());
                 $emailManagement = ' and management has been emailed as you have worked over 10 hours in a day.';
             }
 

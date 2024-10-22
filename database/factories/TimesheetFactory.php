@@ -23,8 +23,7 @@ class TimesheetFactory extends Factory
             'employee_id' => Employee::factory(),
             'project_id' => Project::factory(),
             'time_taken' => $this->faker->numberBetween(0, 12),
-            'description' => $this->faker->sentence(20),
-            'created_at' => Carbon::now()
+            'description' => $this->faker->sentence(10),
         ];
     }
 }

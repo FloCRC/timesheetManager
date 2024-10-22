@@ -266,7 +266,9 @@ class TimesheetTest extends TestCase
 
 //    public function test_getTodaysTimesheetsByEmployeeId_success()
 //    {
-//        Timesheet::factory()->create();
+//        $employee = Employee::factory()->create();
+//
+//        Timesheet::factory()->for($employee)->create();
 //
 //        $response = $this->getJson("/api/timesheets/today/1");
 //
