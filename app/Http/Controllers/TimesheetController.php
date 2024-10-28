@@ -194,39 +194,6 @@ class TimesheetController extends Controller
         ], 500);
     }
 
-    public function updateTimesheetById(Request $request, int $id)
-    {
-        $timesheet = $this->timesheet->find($id);
-
-        if (!$timesheet) {
-            return response()->json([
-                "message" => "Timesheet doesn't exist.",
-            ], 404);
-        }
-
-        $request->validate([
-            "employee_id" => "numeric|exists:employees,id",
-            "project_id" => "numeric|exists:projects,id",
-            "time_taken" => "numeric|max:24|min:0.5",
-            "description" => "string|min: 0|max: 100",
-        ]);
-
-        $timesheet->employee_id = $request->employee_id ?? $timesheet->employee_id;
-        $timesheet->project_id = $request->project_id ?? $timesheet->project_id;
-        $timesheet->time_taken = $request->time_taken ?? $timesheet->time_taken;
-        $timesheet->description = $request->description ?? $timesheet->description;
-
-        if ($timesheet->save()){
-            return response()->json([
-                "message" => "Timesheet updated.",
-            ]);
-        }
-
-        return response()->json([
-            "message" => "An error occurred.",
-        ], 500);
-    }
-
     public function getTodaysTimesheetsByEmployeeId(Int $id)
     {
         $employee = $this->employee->find($id);
