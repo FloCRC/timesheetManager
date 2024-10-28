@@ -30,9 +30,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="../docs/js/tryitout-4.37.2.js"></script>
+    <script src="../docs/js/tryitout-4.38.0.js"></script>
 
-    <script src="../docs/js/theme-default-4.37.2.js"></script>
+    <script src="../docs/js/theme-default-4.38.0.js"></script>
 
 </head>
 
@@ -71,11 +71,11 @@
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-timesheets">
-                                <a href="#endpoints-POSTapi-timesheets">POST api/timesheets</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets">
                                 <a href="#endpoints-GETapi-timesheets">GET api/timesheets</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets--id-">
+                                <a href="#endpoints-GETapi-timesheets--id-">GET api/timesheets/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets-employee--id-">
                                 <a href="#endpoints-GETapi-timesheets-employee--id-">GET api/timesheets/employee/{id}</a>
@@ -83,20 +83,35 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets-project--id-">
                                 <a href="#endpoints-GETapi-timesheets-project--id-">GET api/timesheets/project/{id}</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-timesheets-today--id-">
+                                <a href="#endpoints-GETapi-timesheets-today--id-">GET api/timesheets/today/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-timesheets">
+                                <a href="#endpoints-POSTapi-timesheets">POST api/timesheets</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-timesheets--id-">
                                 <a href="#endpoints-DELETEapi-timesheets--id-">DELETE api/timesheets/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-projects">
                                 <a href="#endpoints-GETapi-projects">GET api/projects</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-projects--id-">
+                                <a href="#endpoints-GETapi-projects--id-">GET api/projects/{id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-projects">
                                 <a href="#endpoints-POSTapi-projects">POST api/projects</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-projects--id-">
+                                <a href="#endpoints-PUTapi-projects--id-">PUT api/projects/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-projects--id-">
                                 <a href="#endpoints-DELETEapi-projects--id-">DELETE api/projects/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-employees">
                                 <a href="#endpoints-GETapi-employees">GET api/employees</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-employees--id-">
+                                <a href="#endpoints-GETapi-employees--id-">GET api/employees/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-employees">
                                 <a href="#endpoints-POSTapi-employees">POST api/employees</a>
@@ -115,7 +130,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 27, 2024</li>
+        <li>Last updated: October 28, 2024</li>
     </ul>
 </div>
 
@@ -137,162 +152,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="endpoints-POSTapi-timesheets">POST api/timesheets</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-timesheets">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/timesheets" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"employee_id\": 2,
-    \"project_id\": 19,
-    \"time_taken\": 73
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "employee_id": 2,
-    "project_id": 19,
-    "time_taken": 73
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-timesheets">
-</span>
-<span id="execution-results-POSTapi-timesheets" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-timesheets"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-timesheets"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-timesheets" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-timesheets">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-timesheets" data-method="POST"
-      data-path="api/timesheets"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-timesheets', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-timesheets"
-                    onclick="tryItOut('POSTapi-timesheets');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-timesheets"
-                    onclick="cancelTryOut('POSTapi-timesheets');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-timesheets"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/timesheets</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-timesheets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-timesheets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>employee_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="employee_id"                data-endpoint="POSTapi-timesheets"
-               value="2"
-               data-component="body">
-    <br>
-<p>Example: <code>2</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>project_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="project_id"                data-endpoint="POSTapi-timesheets"
-               value="19"
-               data-component="body">
-    <br>
-<p>Example: <code>19</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>time_taken</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="time_taken"                data-endpoint="POSTapi-timesheets"
-               value="73"
-               data-component="body">
-    <br>
-<p>Must not be greater than 24. Must be at least 0.5. Example: <code>73</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-timesheets">GET api/timesheets</h2>
+                                <h2 id="endpoints-GETapi-timesheets">GET api/timesheets</h2>
 
 <p>
 </p>
@@ -344,95 +204,683 @@ access-control-allow-origin: *
     &quot;message&quot;: &quot;Timesheets retrieved.&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 2,
-            &quot;employee_id&quot;: 1,
-            &quot;project_id&quot;: 2,
-            &quot;time_taken&quot;: 3.5,
-            &quot;created_at&quot;: &quot;2024-09-27T11:21:28.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-09-27T11:21:28.000000Z&quot;,
+            &quot;id&quot;: 1,
+            &quot;employee_id&quot;: 10,
+            &quot;project_id&quot;: 5,
+            &quot;time_taken&quot;: 4,
+            &quot;created_at&quot;: &quot;2024-10-16T13:41:23.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-16T13:41:23.000000Z&quot;,
+            &quot;description&quot;: &quot;new timesheet&quot;,
             &quot;employee&quot;: {
-                &quot;id&quot;: 1,
-                &quot;first_name&quot;: &quot;Adriana&quot;,
-                &quot;last_name&quot;: &quot;VonRueden&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 10,
+                &quot;first_name&quot;: &quot;Sally&quot;,
+                &quot;last_name&quot;: &quot;Bayer&quot;
             },
             &quot;project&quot;: {
-                &quot;id&quot;: 2,
-                &quot;estimated_time_required&quot;: 27,
-                &quot;time_spent&quot;: 0,
-                &quot;expected_time_remaining&quot;: 27,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 5,
+                &quot;estimated_time_required&quot;: 31,
+                &quot;time_spent&quot;: 9,
+                &quot;expected_time_remaining&quot;: 22
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 10,
+            &quot;time_taken&quot;: 6.5,
+            &quot;created_at&quot;: &quot;2024-10-16T14:42:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-16T14:42:15.000000Z&quot;,
+            &quot;description&quot;: &quot;a new timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 10,
+                &quot;estimated_time_required&quot;: 70,
+                &quot;time_spent&quot;: 14.5,
+                &quot;expected_time_remaining&quot;: 55.5
             }
         },
         {
             &quot;id&quot;: 3,
-            &quot;employee_id&quot;: 2,
-            &quot;project_id&quot;: 2,
-            &quot;time_taken&quot;: 5.5,
-            &quot;created_at&quot;: &quot;2024-09-27T11:27:08.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-09-27T11:27:08.000000Z&quot;,
+            &quot;employee_id&quot;: 6,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 3.5,
+            &quot;created_at&quot;: &quot;2024-10-16T14:42:26.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-16T14:42:26.000000Z&quot;,
+            &quot;description&quot;: &quot;another timesheet&quot;,
             &quot;employee&quot;: {
-                &quot;id&quot;: 2,
-                &quot;first_name&quot;: &quot;Aimee&quot;,
-                &quot;last_name&quot;: &quot;Bernhard&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 6,
+                &quot;first_name&quot;: &quot;Gwen&quot;,
+                &quot;last_name&quot;: &quot;Schaden&quot;
             },
             &quot;project&quot;: {
-                &quot;id&quot;: 2,
-                &quot;estimated_time_required&quot;: 27,
-                &quot;time_spent&quot;: 0,
-                &quot;expected_time_remaining&quot;: 27,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
             }
         },
         {
             &quot;id&quot;: 4,
-            &quot;employee_id&quot;: 3,
-            &quot;project_id&quot;: 4,
-            &quot;time_taken&quot;: 2.5,
-            &quot;created_at&quot;: &quot;2024-09-27T12:40:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-09-27T12:40:30.000000Z&quot;,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 10,
+            &quot;time_taken&quot;: 8,
+            &quot;created_at&quot;: &quot;2024-10-16T14:43:11.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-16T14:43:11.000000Z&quot;,
+            &quot;description&quot;: &quot;Yes, another timesheet.&quot;,
             &quot;employee&quot;: {
-                &quot;id&quot;: 3,
-                &quot;first_name&quot;: &quot;Nico&quot;,
-                &quot;last_name&quot;: &quot;Fritsch&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
             },
             &quot;project&quot;: {
-                &quot;id&quot;: 4,
-                &quot;estimated_time_required&quot;: 18,
-                &quot;time_spent&quot;: 0,
-                &quot;expected_time_remaining&quot;: 18,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 10,
+                &quot;estimated_time_required&quot;: 70,
+                &quot;time_spent&quot;: 14.5,
+                &quot;expected_time_remaining&quot;: 55.5
             }
         },
         {
             &quot;id&quot;: 5,
-            &quot;employee_id&quot;: 7,
-            &quot;project_id&quot;: 4,
-            &quot;time_taken&quot;: 4.5,
-            &quot;created_at&quot;: &quot;2024-09-27T12:42:00.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-09-27T12:42:00.000000Z&quot;,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 2,
+            &quot;time_taken&quot;: 2,
+            &quot;created_at&quot;: &quot;2024-10-17T07:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:06:21.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
             &quot;employee&quot;: {
-                &quot;id&quot;: 7,
-                &quot;first_name&quot;: &quot;Nettie&quot;,
-                &quot;last_name&quot;: &quot;Bartoletti&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 2,
+                &quot;estimated_time_required&quot;: 62,
+                &quot;time_spent&quot;: 11,
+                &quot;expected_time_remaining&quot;: 51
+            }
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 2,
+            &quot;time_taken&quot;: 9,
+            &quot;created_at&quot;: &quot;2024-10-17T07:09:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:09:50.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 2,
+                &quot;estimated_time_required&quot;: 62,
+                &quot;time_spent&quot;: 11,
+                &quot;expected_time_remaining&quot;: 51
+            }
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;employee_id&quot;: 3,
+            &quot;project_id&quot;: 4,
+            &quot;time_taken&quot;: 7,
+            &quot;created_at&quot;: &quot;2024-10-17T07:12:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:12:02.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 3,
+                &quot;first_name&quot;: &quot;Lessie&quot;,
+                &quot;last_name&quot;: &quot;Prosacco&quot;
             },
             &quot;project&quot;: {
                 &quot;id&quot;: 4,
-                &quot;estimated_time_required&quot;: 18,
-                &quot;time_spent&quot;: 0,
-                &quot;expected_time_remaining&quot;: 18,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;estimated_time_required&quot;: 41,
+                &quot;time_spent&quot;: 17,
+                &quot;expected_time_remaining&quot;: 24
+            }
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;employee_id&quot;: 3,
+            &quot;project_id&quot;: 7,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-17T07:12:11.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:12:11.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 3,
+                &quot;first_name&quot;: &quot;Lessie&quot;,
+                &quot;last_name&quot;: &quot;Prosacco&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 7,
+                &quot;estimated_time_required&quot;: 20,
+                &quot;time_spent&quot;: 5,
+                &quot;expected_time_remaining&quot;: 15
+            }
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;employee_id&quot;: 7,
+            &quot;project_id&quot;: 8,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-17T07:22:39.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:22:39.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 7,
+                &quot;first_name&quot;: &quot;Marcos&quot;,
+                &quot;last_name&quot;: &quot;Beier&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 8,
+                &quot;estimated_time_required&quot;: 16,
+                &quot;time_spent&quot;: 10,
+                &quot;expected_time_remaining&quot;: 6
+            }
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;employee_id&quot;: 7,
+            &quot;project_id&quot;: 8,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-17T07:25:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:25:59.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 7,
+                &quot;first_name&quot;: &quot;Marcos&quot;,
+                &quot;last_name&quot;: &quot;Beier&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 8,
+                &quot;estimated_time_required&quot;: 16,
+                &quot;time_spent&quot;: 10,
+                &quot;expected_time_remaining&quot;: 6
+            }
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;employee_id&quot;: 7,
+            &quot;project_id&quot;: 4,
+            &quot;time_taken&quot;: 8,
+            &quot;created_at&quot;: &quot;2024-10-17T07:26:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-17T07:26:10.000000Z&quot;,
+            &quot;description&quot;: &quot;did some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 7,
+                &quot;first_name&quot;: &quot;Marcos&quot;,
+                &quot;last_name&quot;: &quot;Beier&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 4,
+                &quot;estimated_time_required&quot;: 41,
+                &quot;time_spent&quot;: 17,
+                &quot;expected_time_remaining&quot;: 24
+            }
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 6,
+            &quot;time_taken&quot;: 7,
+            &quot;created_at&quot;: &quot;2024-10-23T12:31:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-23T12:31:15.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 6,
+                &quot;estimated_time_required&quot;: 61,
+                &quot;time_spent&quot;: 11.5,
+                &quot;expected_time_remaining&quot;: 49.5
+            }
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;employee_id&quot;: 5,
+            &quot;project_id&quot;: 3,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-23T12:31:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-23T12:31:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet again&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 5,
+                &quot;first_name&quot;: &quot;Tianna&quot;,
+                &quot;last_name&quot;: &quot;Rohan&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 3,
+                &quot;estimated_time_required&quot;: 94,
+                &quot;time_spent&quot;: 5,
+                &quot;expected_time_remaining&quot;: 89
+            }
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;employee_id&quot;: 8,
+            &quot;project_id&quot;: 6,
+            &quot;time_taken&quot;: 4.5,
+            &quot;created_at&quot;: &quot;2024-10-23T13:49:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-23T13:49:16.000000Z&quot;,
+            &quot;description&quot;: &quot;Another timesheet being added.&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 8,
+                &quot;first_name&quot;: &quot;Tevin&quot;,
+                &quot;last_name&quot;: &quot;Lesch&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 6,
+                &quot;estimated_time_required&quot;: 61,
+                &quot;time_spent&quot;: 11.5,
+                &quot;expected_time_remaining&quot;: 49.5
+            }
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;employee_id&quot;: 3,
+            &quot;project_id&quot;: 9,
+            &quot;time_taken&quot;: 6,
+            &quot;created_at&quot;: &quot;2024-10-28T08:07:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-28T08:07:06.000000Z&quot;,
+            &quot;description&quot;: &quot;Added a timesheet. Added a timesheet. Added a timesheet. Added a timesheet. Added a timesheet.&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 3,
+                &quot;first_name&quot;: &quot;Lessie&quot;,
+                &quot;last_name&quot;: &quot;Prosacco&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 9,
+                &quot;estimated_time_required&quot;: 88,
+                &quot;time_spent&quot;: 24,
+                &quot;expected_time_remaining&quot;: 64
+            }
+        },
+        {
+            &quot;id&quot;: 31,
+            &quot;employee_id&quot;: 2,
+            &quot;project_id&quot;: 5,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-28T08:20:33.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-28T08:20:33.000000Z&quot;,
+            &quot;description&quot;: &quot;all good&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 2,
+                &quot;first_name&quot;: &quot;Louisa&quot;,
+                &quot;last_name&quot;: &quot;Marks&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 5,
+                &quot;estimated_time_required&quot;: 31,
+                &quot;time_spent&quot;: 9,
+                &quot;expected_time_remaining&quot;: 22
+            }
+        },
+        {
+            &quot;id&quot;: 32,
+            &quot;employee_id&quot;: 2,
+            &quot;project_id&quot;: 4,
+            &quot;time_taken&quot;: 2,
+            &quot;created_at&quot;: &quot;2024-10-28T09:17:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-28T09:17:22.000000Z&quot;,
+            &quot;description&quot;: &quot;Another test&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 2,
+                &quot;first_name&quot;: &quot;Louisa&quot;,
+                &quot;last_name&quot;: &quot;Marks&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 4,
+                &quot;estimated_time_required&quot;: 41,
+                &quot;time_spent&quot;: 17,
+                &quot;expected_time_remaining&quot;: 24
+            }
+        },
+        {
+            &quot;id&quot;: 33,
+            &quot;employee_id&quot;: 6,
+            &quot;project_id&quot;: 9,
+            &quot;time_taken&quot;: 13,
+            &quot;created_at&quot;: &quot;2024-10-28T09:34:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-28T09:34:17.000000Z&quot;,
+            &quot;description&quot;: &quot;email test&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 6,
+                &quot;first_name&quot;: &quot;Gwen&quot;,
+                &quot;last_name&quot;: &quot;Schaden&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 9,
+                &quot;estimated_time_required&quot;: 88,
+                &quot;time_spent&quot;: 24,
+                &quot;expected_time_remaining&quot;: 64
+            }
+        },
+        {
+            &quot;id&quot;: 34,
+            &quot;employee_id&quot;: 10,
+            &quot;project_id&quot;: 9,
+            &quot;time_taken&quot;: 5,
+            &quot;created_at&quot;: &quot;2024-10-28T10:54:35.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-28T10:54:35.000000Z&quot;,
+            &quot;description&quot;: &quot;fixed some stuff&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 10,
+                &quot;first_name&quot;: &quot;Sally&quot;,
+                &quot;last_name&quot;: &quot;Bayer&quot;
+            },
+            &quot;project&quot;: {
+                &quot;id&quot;: 9,
+                &quot;estimated_time_required&quot;: 88,
+                &quot;time_spent&quot;: 24,
+                &quot;expected_time_remaining&quot;: 64
             }
         }
     ]
@@ -510,6 +958,162 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="endpoints-GETapi-timesheets--id-">GET api/timesheets/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-timesheets--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/timesheets/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/timesheets/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-timesheets--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Timesheet retrieved.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;employee_id&quot;: 10,
+        &quot;project_id&quot;: 5,
+        &quot;time_taken&quot;: 4,
+        &quot;created_at&quot;: &quot;2024-10-16T13:41:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-16T13:41:23.000000Z&quot;,
+        &quot;description&quot;: &quot;new timesheet&quot;,
+        &quot;employee&quot;: {
+            &quot;id&quot;: 10,
+            &quot;first_name&quot;: &quot;Sally&quot;,
+            &quot;last_name&quot;: &quot;Bayer&quot;
+        },
+        &quot;project&quot;: {
+            &quot;id&quot;: 5,
+            &quot;estimated_time_required&quot;: 31,
+            &quot;time_spent&quot;: 9,
+            &quot;expected_time_remaining&quot;: 22
+        }
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-timesheets--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-timesheets--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-timesheets--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-timesheets--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-timesheets--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-timesheets--id-" data-method="GET"
+      data-path="api/timesheets/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-timesheets--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-timesheets--id-"
+                    onclick="tryItOut('GETapi-timesheets--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-timesheets--id-"
+                    onclick="cancelTryOut('GETapi-timesheets--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-timesheets--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/timesheets/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-timesheets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-timesheets--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-timesheets--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the timesheet. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-GETapi-timesheets-employee--id-">GET api/timesheets/employee/{id}</h2>
 
 <p>
@@ -562,18 +1166,213 @@ access-control-allow-origin: *
     &quot;message&quot;: &quot;Timesheets retrieved.&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 2,
+            &quot;id&quot;: 12,
             &quot;employee_id&quot;: 1,
-            &quot;project_id&quot;: 2,
-            &quot;time_taken&quot;: 3.5,
-            &quot;created_at&quot;: &quot;2024-09-27T11:21:28.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-09-27T11:21:28.000000Z&quot;,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
             &quot;employee&quot;: {
                 &quot;id&quot;: 1,
-                &quot;first_name&quot;: &quot;Adriana&quot;,
-                &quot;last_name&quot;: &quot;VonRueden&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;employee&quot;: {
+                &quot;id&quot;: 1,
+                &quot;first_name&quot;: &quot;Josianne&quot;,
+                &quot;last_name&quot;: &quot;Kulas&quot;
             }
         }
     ]
@@ -700,7 +1499,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-timesheets-project--id-">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -712,7 +1511,249 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;This project has no timesheets.&quot;
+    &quot;message&quot;: &quot;Timesheets retrieved.&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 3,
+            &quot;employee_id&quot;: 6,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 3.5,
+            &quot;created_at&quot;: &quot;2024-10-16T14:42:26.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-16T14:42:26.000000Z&quot;,
+            &quot;description&quot;: &quot;another timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T10:39:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:48:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:38.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:48.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:49:56.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:50:07.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T11:56:47.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:06:04.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:08:59.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:09:31.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:13:16.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:14:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;employee_id&quot;: 1,
+            &quot;project_id&quot;: 1,
+            &quot;time_taken&quot;: 5.5,
+            &quot;created_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-10-22T12:15:19.000000Z&quot;,
+            &quot;description&quot;: &quot;a timesheet&quot;,
+            &quot;project&quot;: {
+                &quot;id&quot;: 1,
+                &quot;estimated_time_required&quot;: 55,
+                &quot;time_spent&quot;: 86,
+                &quot;expected_time_remaining&quot;: 0
+            }
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -799,6 +1840,310 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="endpoints-GETapi-timesheets-today--id-">GET api/timesheets/today/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-timesheets-today--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/timesheets/today/consequuntur" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/timesheets/today/consequuntur"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-timesheets-today--id-">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-timesheets-today--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-timesheets-today--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-timesheets-today--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-timesheets-today--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-timesheets-today--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-timesheets-today--id-" data-method="GET"
+      data-path="api/timesheets/today/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-timesheets-today--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-timesheets-today--id-"
+                    onclick="tryItOut('GETapi-timesheets-today--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-timesheets-today--id-"
+                    onclick="cancelTryOut('GETapi-timesheets-today--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-timesheets-today--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/timesheets/today/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-timesheets-today--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-timesheets-today--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-timesheets-today--id-"
+               value="consequuntur"
+               data-component="url">
+    <br>
+<p>The ID of the today. Example: <code>consequuntur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-timesheets">POST api/timesheets</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-timesheets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/timesheets" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"employee_id\": 1.68753261,
+    \"project_id\": 8234590.600215491,
+    \"time_taken\": 35,
+    \"description\": \"Officia et molestiae animi molestias.\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/timesheets"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "employee_id": 1.68753261,
+    "project_id": 8234590.600215491,
+    "time_taken": 35,
+    "description": "Officia et molestiae animi molestias."
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-timesheets">
+</span>
+<span id="execution-results-POSTapi-timesheets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-timesheets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-timesheets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-timesheets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-timesheets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-timesheets" data-method="POST"
+      data-path="api/timesheets"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-timesheets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-timesheets"
+                    onclick="tryItOut('POSTapi-timesheets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-timesheets"
+                    onclick="cancelTryOut('POSTapi-timesheets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-timesheets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/timesheets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-timesheets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-timesheets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>employee_id</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="employee_id"                data-endpoint="POSTapi-timesheets"
+               value="1.68753261"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the employees table. Example: <code>1.68753261</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>project_id</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="project_id"                data-endpoint="POSTapi-timesheets"
+               value="8234590.6002155"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the projects table. Example: <code>8234590.6002155</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>time_taken</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="time_taken"                data-endpoint="POSTapi-timesheets"
+               value="35"
+               data-component="body">
+    <br>
+<p>Must not be greater than 24. Must be at least 0.5. Example: <code>35</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-timesheets"
+               value="Officia et molestiae animi molestias."
+               data-component="body">
+    <br>
+<p>Must be at least  0 characters. Must not be greater than  100 characters. Example: <code>Officia et molestiae animi molestias.</code></p>
+        </div>
+        </form>
+
                     <h2 id="endpoints-DELETEapi-timesheets--id-">DELETE api/timesheets/{id}</h2>
 
 <p>
@@ -812,14 +2157,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/timesheets/2" \
+    "http://localhost/api/timesheets/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets/2"
+    "http://localhost/api/timesheets/1"
 );
 
 const headers = {
@@ -912,10 +2257,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-timesheets--id-"
-               value="2"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the timesheet. Example: <code>2</code></p>
+<p>The ID of the timesheet. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -972,83 +2317,63 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;estimated_time_required&quot;: 30,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 30,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 55,
+            &quot;time_spent&quot;: 86,
+            &quot;expected_time_remaining&quot;: 0
         },
         {
             &quot;id&quot;: 2,
-            &quot;estimated_time_required&quot;: 27,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 27,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 62,
+            &quot;time_spent&quot;: 11,
+            &quot;expected_time_remaining&quot;: 51
         },
         {
             &quot;id&quot;: 3,
-            &quot;estimated_time_required&quot;: 50,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 50,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 94,
+            &quot;time_spent&quot;: 5,
+            &quot;expected_time_remaining&quot;: 89
         },
         {
             &quot;id&quot;: 4,
-            &quot;estimated_time_required&quot;: 18,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 18,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 41,
+            &quot;time_spent&quot;: 17,
+            &quot;expected_time_remaining&quot;: 24
         },
         {
             &quot;id&quot;: 5,
-            &quot;estimated_time_required&quot;: 74,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 74,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 31,
+            &quot;time_spent&quot;: 9,
+            &quot;expected_time_remaining&quot;: 22
         },
         {
             &quot;id&quot;: 6,
-            &quot;estimated_time_required&quot;: 12,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 12,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 61,
+            &quot;time_spent&quot;: 11.5,
+            &quot;expected_time_remaining&quot;: 49.5
         },
         {
             &quot;id&quot;: 7,
-            &quot;estimated_time_required&quot;: 72,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 72,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 20,
+            &quot;time_spent&quot;: 5,
+            &quot;expected_time_remaining&quot;: 15
         },
         {
             &quot;id&quot;: 8,
-            &quot;estimated_time_required&quot;: 25,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 25,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 16,
+            &quot;time_spent&quot;: 10,
+            &quot;expected_time_remaining&quot;: 6
         },
         {
             &quot;id&quot;: 9,
-            &quot;estimated_time_required&quot;: 43,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 43,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 88,
+            &quot;time_spent&quot;: 24,
+            &quot;expected_time_remaining&quot;: 64
         },
         {
             &quot;id&quot;: 10,
-            &quot;estimated_time_required&quot;: 29,
-            &quot;time_spent&quot;: 0,
-            &quot;expected_time_remaining&quot;: 29,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;estimated_time_required&quot;: 70,
+            &quot;time_spent&quot;: 14.5,
+            &quot;expected_time_remaining&quot;: 55.5
         }
     ]
 }</code>
@@ -1125,6 +2450,148 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="endpoints-GETapi-projects--id-">GET api/projects/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-projects--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/projects/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/projects/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-projects--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Project retrieved.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;estimated_time_required&quot;: 55,
+        &quot;time_spent&quot;: 86,
+        &quot;expected_time_remaining&quot;: 0
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-projects--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-projects--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-projects--id-" data-method="GET"
+      data-path="api/projects/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-projects--id-"
+                    onclick="tryItOut('GETapi-projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-projects--id-"
+                    onclick="cancelTryOut('GETapi-projects--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-projects--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/projects/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-projects--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the project. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-POSTapi-projects">POST api/projects</h2>
 
 <p>
@@ -1142,7 +2609,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"estimated_time_required\": 29
+    \"estimated_time_required\": 65
 }"
 </code></pre></div>
 
@@ -1158,7 +2625,7 @@ const headers = {
 };
 
 let body = {
-    "estimated_time_required": 29
+    "estimated_time_required": 65
 };
 
 fetch(url, {
@@ -1247,10 +2714,177 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estimated_time_required"                data-endpoint="POSTapi-projects"
-               value="29"
+               value="65"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>29</code></p>
+<p>Must be at least 1. Example: <code>65</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-projects--id-">PUT api/projects/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-projects--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/projects/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"time_spent\": 79,
+    \"expected_time_remaining\": 30,
+    \"estimated_time_required\": 47
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/projects/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "time_spent": 79,
+    "expected_time_remaining": 30,
+    "estimated_time_required": 47
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-projects--id-">
+</span>
+<span id="execution-results-PUTapi-projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-projects--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-projects--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-projects--id-" data-method="PUT"
+      data-path="api/projects/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-projects--id-"
+                    onclick="tryItOut('PUTapi-projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-projects--id-"
+                    onclick="cancelTryOut('PUTapi-projects--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-projects--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/projects/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-projects--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the project. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>time_spent</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="time_spent"                data-endpoint="PUTapi-projects--id-"
+               value="79"
+               data-component="body">
+    <br>
+<p>Must be at least 1. Example: <code>79</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>expected_time_remaining</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="expected_time_remaining"                data-endpoint="PUTapi-projects--id-"
+               value="30"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>30</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estimated_time_required</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estimated_time_required"                data-endpoint="PUTapi-projects--id-"
+               value="47"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>47</code></p>
         </div>
         </form>
 
@@ -1427,73 +3061,53 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;first_name&quot;: &quot;Adriana&quot;,
-            &quot;last_name&quot;: &quot;VonRueden&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Josianne&quot;,
+            &quot;last_name&quot;: &quot;Kulas&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;first_name&quot;: &quot;Aimee&quot;,
-            &quot;last_name&quot;: &quot;Bernhard&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Louisa&quot;,
+            &quot;last_name&quot;: &quot;Marks&quot;
         },
         {
             &quot;id&quot;: 3,
-            &quot;first_name&quot;: &quot;Nico&quot;,
-            &quot;last_name&quot;: &quot;Fritsch&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Lessie&quot;,
+            &quot;last_name&quot;: &quot;Prosacco&quot;
         },
         {
             &quot;id&quot;: 4,
-            &quot;first_name&quot;: &quot;Candice&quot;,
-            &quot;last_name&quot;: &quot;Williamson&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Zoey&quot;,
+            &quot;last_name&quot;: &quot;Becker&quot;
         },
         {
             &quot;id&quot;: 5,
-            &quot;first_name&quot;: &quot;Hunter&quot;,
-            &quot;last_name&quot;: &quot;Dickinson&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Tianna&quot;,
+            &quot;last_name&quot;: &quot;Rohan&quot;
         },
         {
             &quot;id&quot;: 6,
-            &quot;first_name&quot;: &quot;Buford&quot;,
-            &quot;last_name&quot;: &quot;Spinka&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Gwen&quot;,
+            &quot;last_name&quot;: &quot;Schaden&quot;
         },
         {
             &quot;id&quot;: 7,
-            &quot;first_name&quot;: &quot;Nettie&quot;,
-            &quot;last_name&quot;: &quot;Bartoletti&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Marcos&quot;,
+            &quot;last_name&quot;: &quot;Beier&quot;
         },
         {
             &quot;id&quot;: 8,
-            &quot;first_name&quot;: &quot;Fern&quot;,
-            &quot;last_name&quot;: &quot;Glover&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Tevin&quot;,
+            &quot;last_name&quot;: &quot;Lesch&quot;
         },
         {
             &quot;id&quot;: 9,
-            &quot;first_name&quot;: &quot;Wilma&quot;,
-            &quot;last_name&quot;: &quot;Reinger&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Dorothea&quot;,
+            &quot;last_name&quot;: &quot;Balistreri&quot;
         },
         {
             &quot;id&quot;: 10,
-            &quot;first_name&quot;: &quot;Marisa&quot;,
-            &quot;last_name&quot;: &quot;Ondricka&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
+            &quot;first_name&quot;: &quot;Sally&quot;,
+            &quot;last_name&quot;: &quot;Bayer&quot;
         }
     ]
 }</code>
@@ -1570,6 +3184,147 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="endpoints-GETapi-employees--id-">GET api/employees/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-employees--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/employees/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/employees/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-employees--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Employee retrieved.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;Josianne&quot;,
+        &quot;last_name&quot;: &quot;Kulas&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-employees--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-employees--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-employees--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-employees--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-employees--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-employees--id-" data-method="GET"
+      data-path="api/employees/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-employees--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-employees--id-"
+                    onclick="tryItOut('GETapi-employees--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-employees--id-"
+                    onclick="cancelTryOut('GETapi-employees--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-employees--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/employees/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-employees--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-employees--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-employees--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the employee. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-POSTapi-employees">POST api/employees</h2>
 
 <p>
@@ -1587,8 +3342,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"ndyhugyl\",
-    \"last_name\": \"jmolqcopkwphvdvjcyy\"
+    \"first_name\": \"qubffukbjrklwwhmfabbn\",
+    \"last_name\": \"alybikzplb\"
 }"
 </code></pre></div>
 
@@ -1604,8 +3359,8 @@ const headers = {
 };
 
 let body = {
-    "first_name": "ndyhugyl",
-    "last_name": "jmolqcopkwphvdvjcyy"
+    "first_name": "qubffukbjrklwwhmfabbn",
+    "last_name": "alybikzplb"
 };
 
 fetch(url, {
@@ -1694,10 +3449,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-employees"
-               value="ndyhugyl"
+               value="qubffukbjrklwwhmfabbn"
                data-component="body">
     <br>
-<p>Must not be greater than 30 characters. Example: <code>ndyhugyl</code></p>
+<p>Must not be greater than 30 characters. Example: <code>qubffukbjrklwwhmfabbn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -1705,10 +3460,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-employees"
-               value="jmolqcopkwphvdvjcyy"
+               value="alybikzplb"
                data-component="body">
     <br>
-<p>Must not be greater than 30 characters. Example: <code>jmolqcopkwphvdvjcyy</code></p>
+<p>Must not be greater than 30 characters. Example: <code>alybikzplb</code></p>
         </div>
         </form>
 

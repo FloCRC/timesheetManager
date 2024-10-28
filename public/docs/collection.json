@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "2681a6a3-7bc4-4b80-9288-7c4e7a8cd0cb",
+        "_postman_id": "c12d7d06-049c-4d3f-adbb-adb92bae7d79",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,37 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "POST api\/timesheets",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/timesheets",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/timesheets"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"employee_id\":2,\"project_id\":19,\"time_taken\":73}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
                 {
                     "name": "GET api\/timesheets",
                     "request": {
@@ -93,7 +62,63 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":2,\"employee_id\":1,\"project_id\":2,\"time_taken\":3.5,\"created_at\":\"2024-09-27T11:21:28.000000Z\",\"updated_at\":\"2024-09-27T11:21:28.000000Z\",\"employee\":{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null}},{\"id\":3,\"employee_id\":2,\"project_id\":2,\"time_taken\":5.5,\"created_at\":\"2024-09-27T11:27:08.000000Z\",\"updated_at\":\"2024-09-27T11:27:08.000000Z\",\"employee\":{\"id\":2,\"first_name\":\"Aimee\",\"last_name\":\"Bernhard\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null}},{\"id\":4,\"employee_id\":3,\"project_id\":4,\"time_taken\":2.5,\"created_at\":\"2024-09-27T12:40:30.000000Z\",\"updated_at\":\"2024-09-27T12:40:30.000000Z\",\"employee\":{\"id\":3,\"first_name\":\"Nico\",\"last_name\":\"Fritsch\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null}},{\"id\":5,\"employee_id\":7,\"project_id\":4,\"time_taken\":4.5,\"created_at\":\"2024-09-27T12:42:00.000000Z\",\"updated_at\":\"2024-09-27T12:42:00.000000Z\",\"employee\":{\"id\":7,\"first_name\":\"Nettie\",\"last_name\":\"Bartoletti\",\"created_at\":null,\"updated_at\":null},\"project\":{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null}}]}",
+                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":1,\"employee_id\":10,\"project_id\":5,\"time_taken\":4,\"created_at\":\"2024-10-16T13:41:23.000000Z\",\"updated_at\":\"2024-10-16T13:41:23.000000Z\",\"description\":\"new timesheet\",\"employee\":{\"id\":10,\"first_name\":\"Sally\",\"last_name\":\"Bayer\"},\"project\":{\"id\":5,\"estimated_time_required\":31,\"time_spent\":9,\"expected_time_remaining\":22}},{\"id\":2,\"employee_id\":5,\"project_id\":10,\"time_taken\":6.5,\"created_at\":\"2024-10-16T14:42:15.000000Z\",\"updated_at\":\"2024-10-16T14:42:15.000000Z\",\"description\":\"a new timesheet\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":10,\"estimated_time_required\":70,\"time_spent\":14.5,\"expected_time_remaining\":55.5}},{\"id\":3,\"employee_id\":6,\"project_id\":1,\"time_taken\":3.5,\"created_at\":\"2024-10-16T14:42:26.000000Z\",\"updated_at\":\"2024-10-16T14:42:26.000000Z\",\"description\":\"another timesheet\",\"employee\":{\"id\":6,\"first_name\":\"Gwen\",\"last_name\":\"Schaden\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":4,\"employee_id\":5,\"project_id\":10,\"time_taken\":8,\"created_at\":\"2024-10-16T14:43:11.000000Z\",\"updated_at\":\"2024-10-16T14:43:11.000000Z\",\"description\":\"Yes, another timesheet.\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":10,\"estimated_time_required\":70,\"time_spent\":14.5,\"expected_time_remaining\":55.5}},{\"id\":5,\"employee_id\":5,\"project_id\":2,\"time_taken\":2,\"created_at\":\"2024-10-17T07:06:21.000000Z\",\"updated_at\":\"2024-10-17T07:06:21.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":2,\"estimated_time_required\":62,\"time_spent\":11,\"expected_time_remaining\":51}},{\"id\":6,\"employee_id\":5,\"project_id\":2,\"time_taken\":9,\"created_at\":\"2024-10-17T07:09:50.000000Z\",\"updated_at\":\"2024-10-17T07:09:50.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":2,\"estimated_time_required\":62,\"time_spent\":11,\"expected_time_remaining\":51}},{\"id\":7,\"employee_id\":3,\"project_id\":4,\"time_taken\":7,\"created_at\":\"2024-10-17T07:12:02.000000Z\",\"updated_at\":\"2024-10-17T07:12:02.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":3,\"first_name\":\"Lessie\",\"last_name\":\"Prosacco\"},\"project\":{\"id\":4,\"estimated_time_required\":41,\"time_spent\":17,\"expected_time_remaining\":24}},{\"id\":8,\"employee_id\":3,\"project_id\":7,\"time_taken\":5,\"created_at\":\"2024-10-17T07:12:11.000000Z\",\"updated_at\":\"2024-10-17T07:12:11.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":3,\"first_name\":\"Lessie\",\"last_name\":\"Prosacco\"},\"project\":{\"id\":7,\"estimated_time_required\":20,\"time_spent\":5,\"expected_time_remaining\":15}},{\"id\":9,\"employee_id\":7,\"project_id\":8,\"time_taken\":5,\"created_at\":\"2024-10-17T07:22:39.000000Z\",\"updated_at\":\"2024-10-17T07:22:39.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":7,\"first_name\":\"Marcos\",\"last_name\":\"Beier\"},\"project\":{\"id\":8,\"estimated_time_required\":16,\"time_spent\":10,\"expected_time_remaining\":6}},{\"id\":10,\"employee_id\":7,\"project_id\":8,\"time_taken\":5,\"created_at\":\"2024-10-17T07:25:59.000000Z\",\"updated_at\":\"2024-10-17T07:25:59.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":7,\"first_name\":\"Marcos\",\"last_name\":\"Beier\"},\"project\":{\"id\":8,\"estimated_time_required\":16,\"time_spent\":10,\"expected_time_remaining\":6}},{\"id\":11,\"employee_id\":7,\"project_id\":4,\"time_taken\":8,\"created_at\":\"2024-10-17T07:26:10.000000Z\",\"updated_at\":\"2024-10-17T07:26:10.000000Z\",\"description\":\"did some stuff\",\"employee\":{\"id\":7,\"first_name\":\"Marcos\",\"last_name\":\"Beier\"},\"project\":{\"id\":4,\"estimated_time_required\":41,\"time_spent\":17,\"expected_time_remaining\":24}},{\"id\":12,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T10:39:48.000000Z\",\"updated_at\":\"2024-10-22T10:39:48.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":13,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:31.000000Z\",\"updated_at\":\"2024-10-22T11:48:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":14,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:56.000000Z\",\"updated_at\":\"2024-10-22T11:48:56.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":15,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:31.000000Z\",\"updated_at\":\"2024-10-22T11:49:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":16,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:38.000000Z\",\"updated_at\":\"2024-10-22T11:49:38.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":17,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:48.000000Z\",\"updated_at\":\"2024-10-22T11:49:48.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":18,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:56.000000Z\",\"updated_at\":\"2024-10-22T11:49:56.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":19,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:50:07.000000Z\",\"updated_at\":\"2024-10-22T11:50:07.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":20,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:56:47.000000Z\",\"updated_at\":\"2024-10-22T11:56:47.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":21,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:06:04.000000Z\",\"updated_at\":\"2024-10-22T12:06:04.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":22,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:08:59.000000Z\",\"updated_at\":\"2024-10-22T12:08:59.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":23,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:09:31.000000Z\",\"updated_at\":\"2024-10-22T12:09:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":24,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:13:16.000000Z\",\"updated_at\":\"2024-10-22T12:13:16.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":25,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:14:19.000000Z\",\"updated_at\":\"2024-10-22T12:14:19.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":26,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:15:19.000000Z\",\"updated_at\":\"2024-10-22T12:15:19.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":27,\"employee_id\":5,\"project_id\":6,\"time_taken\":7,\"created_at\":\"2024-10-23T12:31:15.000000Z\",\"updated_at\":\"2024-10-23T12:31:15.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":6,\"estimated_time_required\":61,\"time_spent\":11.5,\"expected_time_remaining\":49.5}},{\"id\":28,\"employee_id\":5,\"project_id\":3,\"time_taken\":5,\"created_at\":\"2024-10-23T12:31:56.000000Z\",\"updated_at\":\"2024-10-23T12:31:56.000000Z\",\"description\":\"a timesheet again\",\"employee\":{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},\"project\":{\"id\":3,\"estimated_time_required\":94,\"time_spent\":5,\"expected_time_remaining\":89}},{\"id\":29,\"employee_id\":8,\"project_id\":6,\"time_taken\":4.5,\"created_at\":\"2024-10-23T13:49:16.000000Z\",\"updated_at\":\"2024-10-23T13:49:16.000000Z\",\"description\":\"Another timesheet being added.\",\"employee\":{\"id\":8,\"first_name\":\"Tevin\",\"last_name\":\"Lesch\"},\"project\":{\"id\":6,\"estimated_time_required\":61,\"time_spent\":11.5,\"expected_time_remaining\":49.5}},{\"id\":30,\"employee_id\":3,\"project_id\":9,\"time_taken\":6,\"created_at\":\"2024-10-28T08:07:06.000000Z\",\"updated_at\":\"2024-10-28T08:07:06.000000Z\",\"description\":\"Added a timesheet. Added a timesheet. Added a timesheet. Added a timesheet. Added a timesheet.\",\"employee\":{\"id\":3,\"first_name\":\"Lessie\",\"last_name\":\"Prosacco\"},\"project\":{\"id\":9,\"estimated_time_required\":88,\"time_spent\":24,\"expected_time_remaining\":64}},{\"id\":31,\"employee_id\":2,\"project_id\":5,\"time_taken\":5,\"created_at\":\"2024-10-28T08:20:33.000000Z\",\"updated_at\":\"2024-10-28T08:20:33.000000Z\",\"description\":\"all good\",\"employee\":{\"id\":2,\"first_name\":\"Louisa\",\"last_name\":\"Marks\"},\"project\":{\"id\":5,\"estimated_time_required\":31,\"time_spent\":9,\"expected_time_remaining\":22}},{\"id\":32,\"employee_id\":2,\"project_id\":4,\"time_taken\":2,\"created_at\":\"2024-10-28T09:17:22.000000Z\",\"updated_at\":\"2024-10-28T09:17:22.000000Z\",\"description\":\"Another test\",\"employee\":{\"id\":2,\"first_name\":\"Louisa\",\"last_name\":\"Marks\"},\"project\":{\"id\":4,\"estimated_time_required\":41,\"time_spent\":17,\"expected_time_remaining\":24}},{\"id\":33,\"employee_id\":6,\"project_id\":9,\"time_taken\":13,\"created_at\":\"2024-10-28T09:34:17.000000Z\",\"updated_at\":\"2024-10-28T09:34:17.000000Z\",\"description\":\"email test\",\"employee\":{\"id\":6,\"first_name\":\"Gwen\",\"last_name\":\"Schaden\"},\"project\":{\"id\":9,\"estimated_time_required\":88,\"time_spent\":24,\"expected_time_remaining\":64}},{\"id\":34,\"employee_id\":10,\"project_id\":9,\"time_taken\":5,\"created_at\":\"2024-10-28T10:54:35.000000Z\",\"updated_at\":\"2024-10-28T10:54:35.000000Z\",\"description\":\"fixed some stuff\",\"employee\":{\"id\":10,\"first_name\":\"Sally\",\"last_name\":\"Bayer\"},\"project\":{\"id\":9,\"estimated_time_required\":88,\"time_spent\":24,\"expected_time_remaining\":64}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/timesheets\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the timesheet."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Timesheet retrieved.\",\"data\":{\"id\":1,\"employee_id\":10,\"project_id\":5,\"time_taken\":4,\"created_at\":\"2024-10-16T13:41:23.000000Z\",\"updated_at\":\"2024-10-16T13:41:23.000000Z\",\"description\":\"new timesheet\",\"employee\":{\"id\":10,\"first_name\":\"Sally\",\"last_name\":\"Bayer\"},\"project\":{\"id\":5,\"estimated_time_required\":31,\"time_spent\":9,\"expected_time_remaining\":22}}}",
                             "name": ""
                         }
                     ]
@@ -149,7 +174,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":2,\"employee_id\":1,\"project_id\":2,\"time_taken\":3.5,\"created_at\":\"2024-09-27T11:21:28.000000Z\",\"updated_at\":\"2024-09-27T11:21:28.000000Z\",\"employee\":{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null}}]}",
+                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":12,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T10:39:48.000000Z\",\"updated_at\":\"2024-10-22T10:39:48.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":13,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:31.000000Z\",\"updated_at\":\"2024-10-22T11:48:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":14,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:56.000000Z\",\"updated_at\":\"2024-10-22T11:48:56.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":15,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:31.000000Z\",\"updated_at\":\"2024-10-22T11:49:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":16,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:38.000000Z\",\"updated_at\":\"2024-10-22T11:49:38.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":17,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:48.000000Z\",\"updated_at\":\"2024-10-22T11:49:48.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":18,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:56.000000Z\",\"updated_at\":\"2024-10-22T11:49:56.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":19,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:50:07.000000Z\",\"updated_at\":\"2024-10-22T11:50:07.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":20,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:56:47.000000Z\",\"updated_at\":\"2024-10-22T11:56:47.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":21,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:06:04.000000Z\",\"updated_at\":\"2024-10-22T12:06:04.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":22,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:08:59.000000Z\",\"updated_at\":\"2024-10-22T12:08:59.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":23,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:09:31.000000Z\",\"updated_at\":\"2024-10-22T12:09:31.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":24,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:13:16.000000Z\",\"updated_at\":\"2024-10-22T12:13:16.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":25,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:14:19.000000Z\",\"updated_at\":\"2024-10-22T12:14:19.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}},{\"id\":26,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:15:19.000000Z\",\"updated_at\":\"2024-10-22T12:15:19.000000Z\",\"description\":\"a timesheet\",\"employee\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}}]}",
                             "name": ""
                         }
                     ]
@@ -204,11 +229,98 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 404,
-                            "body": "{\"message\":\"This project has no timesheets.\"}",
+                            "code": 200,
+                            "body": "{\"message\":\"Timesheets retrieved.\",\"data\":[{\"id\":3,\"employee_id\":6,\"project_id\":1,\"time_taken\":3.5,\"created_at\":\"2024-10-16T14:42:26.000000Z\",\"updated_at\":\"2024-10-16T14:42:26.000000Z\",\"description\":\"another timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":12,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T10:39:48.000000Z\",\"updated_at\":\"2024-10-22T10:39:48.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":13,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:31.000000Z\",\"updated_at\":\"2024-10-22T11:48:31.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":14,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:48:56.000000Z\",\"updated_at\":\"2024-10-22T11:48:56.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":15,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:31.000000Z\",\"updated_at\":\"2024-10-22T11:49:31.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":16,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:38.000000Z\",\"updated_at\":\"2024-10-22T11:49:38.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":17,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:48.000000Z\",\"updated_at\":\"2024-10-22T11:49:48.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":18,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:49:56.000000Z\",\"updated_at\":\"2024-10-22T11:49:56.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":19,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:50:07.000000Z\",\"updated_at\":\"2024-10-22T11:50:07.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":20,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T11:56:47.000000Z\",\"updated_at\":\"2024-10-22T11:56:47.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":21,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:06:04.000000Z\",\"updated_at\":\"2024-10-22T12:06:04.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":22,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:08:59.000000Z\",\"updated_at\":\"2024-10-22T12:08:59.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":23,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:09:31.000000Z\",\"updated_at\":\"2024-10-22T12:09:31.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":24,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:13:16.000000Z\",\"updated_at\":\"2024-10-22T12:13:16.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":25,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:14:19.000000Z\",\"updated_at\":\"2024-10-22T12:14:19.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}},{\"id\":26,\"employee_id\":1,\"project_id\":1,\"time_taken\":5.5,\"created_at\":\"2024-10-22T12:15:19.000000Z\",\"updated_at\":\"2024-10-22T12:15:19.000000Z\",\"description\":\"a timesheet\",\"project\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}}]}",
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "GET api\/timesheets\/today\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/today\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/today\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "consequuntur",
+                                    "description": "The ID of the today."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Server Error\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/timesheets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"employee_id\":1.68753261,\"project_id\":8234590.600215491,\"time_taken\":35,\"description\":\"Officia et molestiae animi molestias.\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 },
                 {
                     "name": "DELETE api\/timesheets\/{id}",
@@ -222,7 +334,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "1",
                                     "description": "The ID of the timesheet."
                                 }
                             ]
@@ -289,7 +401,63 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"message\":\"Projects retrieved.\",\"data\":[{\"id\":1,\"estimated_time_required\":30,\"time_spent\":0,\"expected_time_remaining\":30,\"created_at\":null,\"updated_at\":null},{\"id\":2,\"estimated_time_required\":27,\"time_spent\":0,\"expected_time_remaining\":27,\"created_at\":null,\"updated_at\":null},{\"id\":3,\"estimated_time_required\":50,\"time_spent\":0,\"expected_time_remaining\":50,\"created_at\":null,\"updated_at\":null},{\"id\":4,\"estimated_time_required\":18,\"time_spent\":0,\"expected_time_remaining\":18,\"created_at\":null,\"updated_at\":null},{\"id\":5,\"estimated_time_required\":74,\"time_spent\":0,\"expected_time_remaining\":74,\"created_at\":null,\"updated_at\":null},{\"id\":6,\"estimated_time_required\":12,\"time_spent\":0,\"expected_time_remaining\":12,\"created_at\":null,\"updated_at\":null},{\"id\":7,\"estimated_time_required\":72,\"time_spent\":0,\"expected_time_remaining\":72,\"created_at\":null,\"updated_at\":null},{\"id\":8,\"estimated_time_required\":25,\"time_spent\":0,\"expected_time_remaining\":25,\"created_at\":null,\"updated_at\":null},{\"id\":9,\"estimated_time_required\":43,\"time_spent\":0,\"expected_time_remaining\":43,\"created_at\":null,\"updated_at\":null},{\"id\":10,\"estimated_time_required\":29,\"time_spent\":0,\"expected_time_remaining\":29,\"created_at\":null,\"updated_at\":null}]}",
+                            "body": "{\"message\":\"Projects retrieved.\",\"data\":[{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0},{\"id\":2,\"estimated_time_required\":62,\"time_spent\":11,\"expected_time_remaining\":51},{\"id\":3,\"estimated_time_required\":94,\"time_spent\":5,\"expected_time_remaining\":89},{\"id\":4,\"estimated_time_required\":41,\"time_spent\":17,\"expected_time_remaining\":24},{\"id\":5,\"estimated_time_required\":31,\"time_spent\":9,\"expected_time_remaining\":22},{\"id\":6,\"estimated_time_required\":61,\"time_spent\":11.5,\"expected_time_remaining\":49.5},{\"id\":7,\"estimated_time_required\":20,\"time_spent\":5,\"expected_time_remaining\":15},{\"id\":8,\"estimated_time_required\":16,\"time_spent\":10,\"expected_time_remaining\":6},{\"id\":9,\"estimated_time_required\":88,\"time_spent\":24,\"expected_time_remaining\":64},{\"id\":10,\"estimated_time_required\":70,\"time_spent\":14.5,\"expected_time_remaining\":55.5}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/projects\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Project retrieved.\",\"data\":{\"id\":1,\"estimated_time_required\":55,\"time_spent\":86,\"expected_time_remaining\":0}}",
                             "name": ""
                         }
                     ]
@@ -316,7 +484,46 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"estimated_time_required\":29}"
+                            "raw": "{\"estimated_time_required\":65}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/projects\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"time_spent\":79,\"expected_time_remaining\":30,\"estimated_time_required\":47}"
                         },
                         "description": "",
                         "auth": {
@@ -404,7 +611,63 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"message\":\"Employees retrieved.\",\"data\":[{\"id\":1,\"first_name\":\"Adriana\",\"last_name\":\"VonRueden\",\"created_at\":null,\"updated_at\":null},{\"id\":2,\"first_name\":\"Aimee\",\"last_name\":\"Bernhard\",\"created_at\":null,\"updated_at\":null},{\"id\":3,\"first_name\":\"Nico\",\"last_name\":\"Fritsch\",\"created_at\":null,\"updated_at\":null},{\"id\":4,\"first_name\":\"Candice\",\"last_name\":\"Williamson\",\"created_at\":null,\"updated_at\":null},{\"id\":5,\"first_name\":\"Hunter\",\"last_name\":\"Dickinson\",\"created_at\":null,\"updated_at\":null},{\"id\":6,\"first_name\":\"Buford\",\"last_name\":\"Spinka\",\"created_at\":null,\"updated_at\":null},{\"id\":7,\"first_name\":\"Nettie\",\"last_name\":\"Bartoletti\",\"created_at\":null,\"updated_at\":null},{\"id\":8,\"first_name\":\"Fern\",\"last_name\":\"Glover\",\"created_at\":null,\"updated_at\":null},{\"id\":9,\"first_name\":\"Wilma\",\"last_name\":\"Reinger\",\"created_at\":null,\"updated_at\":null},{\"id\":10,\"first_name\":\"Marisa\",\"last_name\":\"Ondricka\",\"created_at\":null,\"updated_at\":null}]}",
+                            "body": "{\"message\":\"Employees retrieved.\",\"data\":[{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"},{\"id\":2,\"first_name\":\"Louisa\",\"last_name\":\"Marks\"},{\"id\":3,\"first_name\":\"Lessie\",\"last_name\":\"Prosacco\"},{\"id\":4,\"first_name\":\"Zoey\",\"last_name\":\"Becker\"},{\"id\":5,\"first_name\":\"Tianna\",\"last_name\":\"Rohan\"},{\"id\":6,\"first_name\":\"Gwen\",\"last_name\":\"Schaden\"},{\"id\":7,\"first_name\":\"Marcos\",\"last_name\":\"Beier\"},{\"id\":8,\"first_name\":\"Tevin\",\"last_name\":\"Lesch\"},{\"id\":9,\"first_name\":\"Dorothea\",\"last_name\":\"Balistreri\"},{\"id\":10,\"first_name\":\"Sally\",\"last_name\":\"Bayer\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/employees\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the employee."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Employee retrieved.\",\"data\":{\"id\":1,\"first_name\":\"Josianne\",\"last_name\":\"Kulas\"}}",
                             "name": ""
                         }
                     ]
@@ -431,7 +694,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"ndyhugyl\",\"last_name\":\"jmolqcopkwphvdvjcyy\"}"
+                            "raw": "{\"first_name\":\"qubffukbjrklwwhmfabbn\",\"last_name\":\"alybikzplb\"}"
                         },
                         "description": "",
                         "auth": {
