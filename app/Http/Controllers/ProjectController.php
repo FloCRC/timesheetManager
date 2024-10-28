@@ -100,7 +100,7 @@ class ProjectController extends Controller
 
         $request->validate([
             "time_spent" => "required|numeric|min:1",
-            "expected_time_remaining" => "required|numeric|min:1",
+            "expected_time_remaining" => "required|numeric|min:0",
             "estimated_time_required" => "numeric|min:0"
         ]);
 
