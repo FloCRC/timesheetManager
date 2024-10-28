@@ -99,11 +99,14 @@ class ProjectController extends Controller
         }
 
         $request->validate([
-            "estimated_time_required" => "required|numeric|min:0"
+            "time_spent" => "required|numeric|min:1",
+            "expected_time_remaining" => "required|numeric|min:1",
+            "estimated_time_required" => "numeric|min:0"
         ]);
 
+        $project->time_spent = $request->time_spent ?? $project->time_spent;
+        $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
         $project->estimated_time_required = $request->estimated_time_required ?? $project->estimated_time_required;
-        $project->expected_time_remaining = $project->estimated_time_required - $project->time_spent;
 
         if ($project->save()){
             return response()->json([

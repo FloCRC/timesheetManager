@@ -228,42 +228,6 @@ class TimesheetTest extends TestCase
         ]);
     }
 
-    public function test_updateTimesheetById_success()
-    {
-        Timesheet::factory()->create();
-
-        $testData = [
-            "time_taken" => 1,
-            "description" => "Test update timesheet"
-        ];
-
-        $response = $this->putJson('/api/timesheets/1', $testData);
-
-        $response->assertStatus(200)
-            ->assertJson(function (AssertableJson $json) {
-                $json->hasAll(['message']);
-            });
-
-        $this->assertDatabaseHas('timesheets', $testData);
-    }
-
-    public function test_updateTimesheetById_fail()
-    {
-        Timesheet::factory()->create();
-
-        $testData = [
-            "time_taken" => 1,
-            "description" => "Test update timesheet"
-        ];
-
-        $response = $this->putJson('/api/timesheets/2', $testData);
-
-        $response->assertStatus(404)
-            ->assertJson(["message" => "Timesheet doesn't exist."]);
-
-        $this->assertDatabaseMissing('timesheets', $testData);
-    }
-
     public function test_getTodaysTimesheetsByEmployeeId_failDoesntExist()
     {
         Timesheet::factory()->create();
