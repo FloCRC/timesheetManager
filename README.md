@@ -23,4 +23,4 @@ This is an API for a simple timesheet manager using Laravel. This builds a datab
 - Run "php artisan db:seed" in terminal
 - Run "php artisan serve --host=0.0.0.0" in terminal to host locally 
 
-### Documentation of all endpoints can be found at /docs
+### Documentation of all endpoints can be found at /docs/api
