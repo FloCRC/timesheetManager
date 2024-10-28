@@ -264,31 +264,6 @@ class TimesheetTest extends TestCase
         $this->assertDatabaseMissing('timesheets', $testData);
     }
 
-//    public function test_getTodaysTimesheetsByEmployeeId_success()
-//    {
-//        $employee = Employee::factory()->create();
-//
-//        Timesheet::factory()->for($employee)->create();
-//
-//        $response = $this->getJson("/api/timesheets/today/1");
-//
-//        $response->assertStatus(200)
-//            ->assertJson(function (AssertableJson $json) {
-//                $json->hasAll(['message', 'data'])
-//                    ->has('data', 1, function (AssertableJson $json) {
-//                        $json->whereAllType([
-//                            'id' => 'integer',
-//                            'employee_id' => 'integer',
-//                            'project_id' => 'integer',
-//                            'time_taken' => 'integer',
-//                            'created_at' => 'string',
-//                            'updated_at' => 'string',
-//                            'description' => 'string',
-//                        ]);
-//                    });
-//            });
-//    }
-
     public function test_getTodaysTimesheetsByEmployeeId_failDoesntExist()
     {
         Timesheet::factory()->create();
