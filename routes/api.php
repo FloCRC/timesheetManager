@@ -9,7 +9,6 @@ Route::get('/timesheets/employee/{id}', [\App\Http\Controllers\TimesheetControll
 Route::get('/timesheets/project/{id}', [\App\Http\Controllers\TimesheetController::class, 'getTimesheetsByProjectId']);
 Route::get('/timesheets/today/{id}', [\App\Http\Controllers\TimesheetController::class, 'getTodaysTimesheetsByEmployeeId']);
 Route::post('/timesheets', [\App\Http\Controllers\TimesheetController::class, 'addTimesheet']);
-Route::put('/timesheets/{id}', [\App\Http\Controllers\TimesheetController::class, 'updateTimesheetById']);
 Route::delete('/timesheets/{id}', [\App\Http\Controllers\TimesheetController::class, 'deleteTimesheetById']);
 
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'getAllProjects']);
