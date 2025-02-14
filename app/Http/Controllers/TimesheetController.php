@@ -33,16 +33,10 @@ class TimesheetController extends Controller
     {
         $timesheets = $this->timesheet->with("employee")->with("project")->get();
 
-        if ($timesheets) {
             return response()->json([
                 "message" => "Timesheets retrieved.",
                 "data" => $timesheets
             ]);
-        }
-
-        return response()->json([
-            "message" => "An error has occurred.",
-        ], 500);
     }
 
     public function getTimesheetById($id)
@@ -77,17 +71,10 @@ class TimesheetController extends Controller
                 "message" => "This employee has no timesheets.",
             ], 404);
         }
-
-        if ($timesheet) {
             return response()->json([
                 "message" => "Timesheets retrieved.",
                 "data" => $timesheet
             ]);
-        }
-
-        return response()->json([
-            "message" => "An error has occurred.",
-        ], 500);
     }
 
     public function getTimesheetsByProjectId(int $id)
@@ -108,16 +95,10 @@ class TimesheetController extends Controller
             ], 404);
         }
 
-        if ($timesheet) {
             return response()->json([
                 "message" => "Timesheets retrieved.",
                 "data" => $timesheet
             ]);
-        }
-
-        return response()->json([
-            "message" => "An error has occurred.",
-        ], 500);
     }
 
     public function addTimesheet(Request $request)
@@ -212,15 +193,9 @@ class TimesheetController extends Controller
             ], 404);
         }
 
-        if ($timesheets) {
             return response()->json([
                 "message" => "Timesheets retrieved.",
                 "data" => $timesheets
             ]);
-        }
-
-        return response()->json([
-            "message" => "An error has occurred.",
-        ], 500);
     }
 }
