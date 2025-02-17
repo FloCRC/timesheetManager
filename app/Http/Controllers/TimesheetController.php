@@ -29,6 +29,10 @@ class TimesheetController extends Controller
         $this->projectController = $projectController;
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getAllTimesheets()
     {
         $timesheets = $this->timesheet->with("employee")->with("project")->get();
@@ -39,7 +43,11 @@ class TimesheetController extends Controller
             ]);
     }
 
-    public function getTimesheetById($id)
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
+    public function getTimesheetById(int $id)
     {
         $timesheet = $this->timesheet->with("employee")->with("project")->find($id);
 
@@ -54,6 +62,10 @@ class TimesheetController extends Controller
         ], 404);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getTimesheetsByEmployeeId(int $id)
     {
         $employee = $this->employee->find($id);
@@ -77,6 +89,10 @@ class TimesheetController extends Controller
             ]);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getTimesheetsByProjectId(int $id)
     {
         $project = $this->project->find($id);
@@ -101,6 +117,10 @@ class TimesheetController extends Controller
             ]);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function addTimesheet(Request $request)
     {
         $request->validate([
@@ -154,6 +174,10 @@ class TimesheetController extends Controller
         ], 500);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function deleteTimesheetById(int $id)
     {
         $timesheet = $this->timesheet->find($id);
@@ -175,6 +199,10 @@ class TimesheetController extends Controller
         ], 500);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getTodaysTimesheetsByEmployeeId(Int $id)
     {
         $employee = $this->employee->find($id);

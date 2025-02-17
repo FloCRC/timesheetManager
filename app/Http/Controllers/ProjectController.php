@@ -18,6 +18,10 @@ class ProjectController extends Controller
         $this->project = $project;
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getAllProjects()
     {
         $projects = $this->project->all();
@@ -28,6 +32,10 @@ class ProjectController extends Controller
         ]);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getProjectById(int $id)
     {
         $project = $this->project->find($id);
@@ -44,6 +52,10 @@ class ProjectController extends Controller
         ], 404);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function addProject(Request $request)
     {
         $request->validate([
@@ -67,6 +79,10 @@ class ProjectController extends Controller
         ], 500);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function deleteProjectById(Int $id)
     {
         $project = $this->project->find($id);
@@ -88,6 +104,10 @@ class ProjectController extends Controller
         ], 500);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function updateProjectById(Int $id, Request $request)
     {
         $project = $this->project->find($id);

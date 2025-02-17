@@ -18,6 +18,10 @@ class EmployeeController extends Controller
         $this->employee = $employee;
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function getAllEmployees()
     {
         $employees = $this->employee->all();
@@ -28,7 +32,11 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function getEmployeeById($id)
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
+    public function getEmployeeById(int $id)
     {
         $employee = $this->employee->find($id);
 
@@ -44,6 +52,10 @@ class EmployeeController extends Controller
         ], 404);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function addEmployee(Request $request)
     {
         $request->validate([
@@ -67,6 +79,10 @@ class EmployeeController extends Controller
         ], 500);
     }
 
+    /**
+     * Return a new JSON response.
+     * @return \Symfony\Component\HttpFoundation\Response 
+     */
     public function deleteEmployeeById(Int $id)
     {
         $employee = $this->employee->find($id);
