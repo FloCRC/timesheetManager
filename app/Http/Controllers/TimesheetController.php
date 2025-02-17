@@ -141,6 +141,10 @@ class TimesheetController extends Controller
 
             $project = $this->project->find($timesheet->project_id);
 
+            if (! $project instanceof Project) {
+                return back()->withErrors(["project" => "This is not a valid project"]);
+              }
+
             $timeSpent = TimeCalculators::calculateTimeSpent($project, $timesheet);
             $timeRemaining = TimeCalculators::calculateTimeRemaining($project, $timesheet);
 
