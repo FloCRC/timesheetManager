@@ -12,6 +12,9 @@ class Project extends Model
 
     public $hidden = ['created_at', 'updated_at'];
 
+    /**
+     * @return HasMany<Timesheet, $this>
+     */
     public function timesheets(): HasMany
     {
         return $this->hasMany(Timesheet::class);
