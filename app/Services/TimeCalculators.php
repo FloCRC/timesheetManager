@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Collection;
 
 class TimeCalculators
 {
+    /**
+     * @return float
+     */
     public static function calculateTimeSpent(Project $project, Timesheet $timesheet)
     {
         return $project->time_spent + $timesheet->time_taken;
     }
 
+    /**
+     * @return float
+     */
     public static function calculateTimeRemaining(Project $project, Timesheet $timesheet)
     {
         $timeRemaining = $project->expected_time_remaining - $timesheet->time_taken;
@@ -33,7 +39,7 @@ class TimeCalculators
         $timeWorkedToday = 0;
 
         foreach ($timesheets as $timesheet) {
-            $timeWorkedToday += $timesheet->time_taken;
+            $timeWorkedToday += $timesheet['time_taken'];
         }
 
         return $timeWorkedToday;
