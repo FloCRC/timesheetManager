@@ -13,7 +13,7 @@ class ProjectTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_getAllProjects_success()
+    public function test_getAllProjects_success(): void
     {
         Project::factory()->create();
 
@@ -33,7 +33,7 @@ class ProjectTest extends TestCase
             });
     }
 
-    public function test_getProjectById_success()
+    public function test_getProjectById_success(): void
     {
         Project::factory()->create();
 
@@ -53,7 +53,7 @@ class ProjectTest extends TestCase
             });
     }
 
-    public function test_getProjectById_fail()
+    public function test_getProjectById_fail(): void
     {
         Project::factory()->create();
 
@@ -65,7 +65,7 @@ class ProjectTest extends TestCase
             });
     }
 
-    public function test_addProject_success()
+    public function test_addProject_success(): void
     {
         $testData = [
             "estimated_time_required" => 50,
@@ -81,7 +81,7 @@ class ProjectTest extends TestCase
         $this->assertDatabaseHas('projects', $testData);
     }
 
-    public function test_addProject_fail()
+    public function test_addProject_fail(): void
     {
         $testData = [];
 
@@ -97,7 +97,7 @@ class ProjectTest extends TestCase
         ]);
     }
 
-    public function test_deleteProjectById_success()
+    public function test_deleteProjectById_success(): void
     {
         $project = Project::factory()->create();
 
@@ -118,7 +118,7 @@ class ProjectTest extends TestCase
         ]);
     }
 
-    public function test_deleteProject_fail()
+    public function test_deleteProject_fail(): void
     {
         $project = Project::factory()->create();
 
@@ -139,7 +139,7 @@ class ProjectTest extends TestCase
         ]);
     }
 
-    public function test_updateProjectById_success()
+    public function test_updateProjectById_success(): void
     {
         Project::factory()->create();
 
@@ -158,7 +158,7 @@ class ProjectTest extends TestCase
         $this->assertDatabaseHas('projects', $testData);
     }
 
-    public function test_updateProjectById_fail()
+    public function test_updateProjectById_fail(): void
     {
         Project::factory()->create();
 

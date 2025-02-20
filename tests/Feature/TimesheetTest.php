@@ -15,7 +15,7 @@ class TimesheetTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_getAllTimesheets_success()
+    public function test_getAllTimesheets_success(): void
     {
         Timesheet::factory()->create();
 
@@ -40,7 +40,7 @@ class TimesheetTest extends TestCase
             });
     }
 
-    public function test_getTimesheetById_success()
+    public function test_getTimesheetById_success(): void
     {
         Timesheet::factory()->create();
 
@@ -65,7 +65,7 @@ class TimesheetTest extends TestCase
             });
     }
 
-    public function test_getTimesheetById_fail()
+    public function test_getTimesheetById_fail(): void
     {
         Timesheet::factory()->create();
 
@@ -75,7 +75,7 @@ class TimesheetTest extends TestCase
             ->assertJson(["message" => "Timesheet doesn't exist."]);
     }
 
-    public function test_getTimesheetByEmployeeId_success()
+    public function test_getTimesheetByEmployeeId_success(): void
     {
         Timesheet::factory()->create();
 
@@ -99,7 +99,7 @@ class TimesheetTest extends TestCase
             });
     }
 
-    public function test_getTimesheetByEmployeeId_fail()
+    public function test_getTimesheetByEmployeeId_fail(): void
     {
         Timesheet::factory()->create();
 
@@ -109,7 +109,7 @@ class TimesheetTest extends TestCase
             ->assertJson(["message" => "Employee id doesn't exist."]);
     }
 
-    public function test_getTimesheetByProjectId_success()
+    public function test_getTimesheetByProjectId_success(): void
     {
         Timesheet::factory()->create();
 
@@ -133,7 +133,7 @@ class TimesheetTest extends TestCase
             });
     }
 
-    public function test_getTimesheetByProjectId_fail()
+    public function test_getTimesheetByProjectId_fail(): void
     {
         Timesheet::factory()->create();
 
@@ -143,7 +143,7 @@ class TimesheetTest extends TestCase
             ->assertJson(["message" => "Project id doesn't exist."]);
     }
 
-    public function test_addTimesheet_success()
+    public function test_addTimesheet_success(): void
     {
         Employee::factory()->create();
         Project::factory()->create();
@@ -165,7 +165,7 @@ class TimesheetTest extends TestCase
         $this->assertDatabaseHas('timesheets', $testData);
     }
 
-    public function test_addTimesheet_fail()
+    public function test_addTimesheet_fail(): void
     {
         Employee::factory()->create();
         Project::factory()->create();
@@ -186,7 +186,7 @@ class TimesheetTest extends TestCase
         $this->assertDatabaseMissing('timesheets', $testData);
     }
 
-    public function test_deleteTimesheetById_success()
+    public function test_deleteTimesheetById_success(): void
     {
         $timesheet = Timesheet::factory()->create();
 
@@ -208,7 +208,7 @@ class TimesheetTest extends TestCase
         ]);
     }
 
-    public function test_deleteTimesheetById_fail()
+    public function test_deleteTimesheetById_fail(): void
     {
         $timesheet = Timesheet::factory()->create();
 
@@ -228,7 +228,7 @@ class TimesheetTest extends TestCase
         ]);
     }
 
-    public function test_getTodaysTimesheetsByEmployeeId_failDoesntExist()
+    public function test_getTodaysTimesheetsByEmployeeId_failDoesntExist(): void
     {
         Timesheet::factory()->create();
 
@@ -238,7 +238,7 @@ class TimesheetTest extends TestCase
             ->assertJson(["message" => "Employee id doesn't exist."]);
     }
 
-    public function test_getTodaysTimesheetsByEmployeeId_failNoTimesheetsToday()
+    public function test_getTodaysTimesheetsByEmployeeId_failNoTimesheetsToday(): void
     {
         Timesheet::factory()->create();
 

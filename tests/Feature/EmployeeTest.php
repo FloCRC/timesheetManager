@@ -13,7 +13,7 @@ class EmployeeTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_getAllEmployees_success()
+    public function test_getAllEmployees_success(): void
     {
         Employee::factory()->create();
 
@@ -32,7 +32,7 @@ class EmployeeTest extends TestCase
             });
     }
 
-    public function test_getEmployeeById_success()
+    public function test_getEmployeeById_success(): void
     {
         Employee::factory()->create();
 
@@ -51,7 +51,7 @@ class EmployeeTest extends TestCase
             });
     }
 
-    public function test_getEmployeeById_fail()
+    public function test_getEmployeeById_fail(): void
     {
         Employee::factory()->create();
 
@@ -63,7 +63,7 @@ class EmployeeTest extends TestCase
             });
     }
 
-    public function test_addEmployee_success()
+    public function test_addEmployee_success(): void
     {
         $testData = [
             'first_name' => 'Test',
@@ -80,7 +80,7 @@ class EmployeeTest extends TestCase
         $this->assertDatabaseHas('employees', $testData);
     }
 
-    public function test_addEmployee_fail()
+    public function test_addEmployee_fail(): void
     {
         $testData = [];
 
@@ -98,7 +98,7 @@ class EmployeeTest extends TestCase
         ]);
     }
 
-    public function test_deleteEmployeeById_success()
+    public function test_deleteEmployeeById_success(): void
     {
         $employee = Employee::factory()->create();
 
@@ -118,7 +118,7 @@ class EmployeeTest extends TestCase
         ]);
     }
 
-    public function test_deleteEmployee_fail()
+    public function test_deleteEmployee_fail(): void
     {
         $employee = Employee::factory()->create();
 
