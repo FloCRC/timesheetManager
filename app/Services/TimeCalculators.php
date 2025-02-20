@@ -32,14 +32,16 @@ class TimeCalculators
 
     /**
      * @param Collection $timesheets
-     * @return int
+     * @return float
      */
     public static function calculateTimeWorkedToday(Collection $timesheets)
     {
         $timeWorkedToday = 0;
 
         foreach ($timesheets as $timesheet) {
-            $timeWorkedToday += $timesheet['time_taken'];
+            if (is_numeric($timesheet['time_taken'])) {
+                $timeWorkedToday += floatval($timesheet['time_taken']);
+            }
         }
 
         return $timeWorkedToday;
