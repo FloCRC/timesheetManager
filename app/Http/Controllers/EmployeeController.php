@@ -65,9 +65,12 @@ class EmployeeController extends Controller
 
         $employee = new Employee();
 
-        $employee->first_name = $request->first_name;
-        $employee->last_name = $request->last_name;
-
+        if (is_string($request->first_name)){
+            $employee->first_name = $request->first_name;
+        }
+        if (is_string($request->last_name)){
+            $employee->last_name = $request->last_name;
+        }
         if ($employee->save()) {
             return response()->json([
                 "message" => "Employee added",

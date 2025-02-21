@@ -132,10 +132,18 @@ class TimesheetController extends Controller
 
         $timesheet = new Timesheet();
 
-        $timesheet->employee_id = $request->employee_id;
-        $timesheet->project_id = $request->project_id;
-        $timesheet->time_taken = $request->time_taken;
-        $timesheet->description = $request->description;
+        if (is_int($request->employee_id)){
+            $timesheet->employee_id = $request->employee_id;
+        }
+        if (is_int($request->project_id)){
+            $timesheet->project_id = $request->project_id;
+        }
+        if (is_float($request->time_taken)){
+            $timesheet->time_taken = $request->time_taken;
+        }
+        if (is_string($request->description)){
+            $timesheet->description = $request->description;
+        }
 
         if ($timesheet->save()){
 

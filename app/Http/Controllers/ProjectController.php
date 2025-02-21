@@ -64,7 +64,9 @@ class ProjectController extends Controller
 
         $project = new Project();
 
-        $project->estimated_time_required = $request->estimated_time_required;
+        if (is_int($request->estimated_time_required)){
+            $project->estimated_time_required = $request->estimated_time_required;
+        }
         $project->time_spent = 0;
         $project->expected_time_remaining = 0;
 
@@ -124,9 +126,15 @@ class ProjectController extends Controller
             "estimated_time_required" => "numeric|min:0"
         ]);
 
-        $project->time_spent = $request->time_spent ?? $project->time_spent;
-        $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
-        $project->estimated_time_required = $request->estimated_time_required ?? $project->estimated_time_required;
+        if (is_float($request->time_spent)){
+            $project->time_spent = $request->time_spent ?? $project->time_spent;
+        }
+        if (is_float($request->expected_time_remaining)){
+            $project->expected_time_remaining = $request->expected_time_remaining ?? $project->expected_time_remaining;
+        }
+        if (is_float($request->estimated_time_required)){
+            $project->estimated_time_required = $request->estimated_time_required ?? $project->estimated_time_required;
+        }
 
         if ($project->save()){
             return response()->json([
